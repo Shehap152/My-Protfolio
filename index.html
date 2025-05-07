@@ -189,6 +189,42 @@
         .project-card:hover .project-overlay {
             opacity: 1;
         }
+
+        .custom-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .alert-box {
+            background: #1e1e1e;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .alert-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .alert-box button {
+            padding: 8px 20px;
+            background: #9cf;
+            color: #000;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -881,8 +917,9 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
                 <div class="card p-8">
-                    <h3 class="text-2xl font-bold mb-6 space-font text-indigo-500">Contact Information</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-indigo-500">Contact Information</h3>
 
                     <div class="space-y-6">
                         <div class="flex items-start">
@@ -917,29 +954,29 @@
                     </div>
 
                     <div class="mt-8">
-                        <h4 class="text-xl font-bold mb-4 space-font text-white">Connect With Me</h4>
+                        <h4 class="text-xl font-bold mb-4 text-white">Connect With Me</h4>
                         <div class="flex space-x-4">
                             <a href="https://github.com/Shehap152/Shehap152" target="_blank"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center social-icon">
+                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-github text-slate-400"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center social-icon">
+                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-linkedin text-slate-400"></i>
                             </a>
                             <a href="https://x.com/sh_ghazal2003" target="_blank"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center social-icon">
+                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-twitter text-slate-400"></i>
                             </a>
                             <a href="https://www.facebook.com/shehap.ghazal" target="_blank"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center social-icon">
+                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-facebook text-slate-400"></i>
                             </a>
                         </div>
                     </div>
 
                     <div class="mt-8 p-6 bg-slate-800 rounded-lg">
-                        <h4 class="text-lg font-bold mb-4 space-font text-white">Availability</h4>
+                        <h4 class="text-lg font-bold mb-4 text-white">Availability</h4>
                         <p class="text-slate-300 mb-2">
                             I'm currently available for freelance work and open to discussing new opportunities.
                         </p>
@@ -950,8 +987,9 @@
                     </div>
                 </div>
 
+                <!-- Contact Form -->
                 <div class="card p-8">
-                    <h3 class="text-2xl font-bold mb-6 space-font text-indigo-500">Send Me a Message</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-indigo-500">Send Me a Message</h3>
 
                     <form id="contact-form" class="space-y-4">
                         <div>
@@ -993,6 +1031,18 @@
         </div>
     </section>
 
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert" style="display: none;"
+        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+        <div class="bg-gray-800 text-white p-6 rounded-xl w-full max-w-sm text-center">
+            <div class="text-lg font-bold mb-4">Message from Shehap...</div>
+            <div class="mb-6" id="alert-message"></div>
+            <button onclick="closeCustomAlert()"
+                class="bg-blue-400 hover:bg-blue-500 text-black font-semibold py-2 px-6 rounded-full">
+                OK
+            </button>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="py-8 bg-slate-900 border-t border-slate-800">
         <div class="container mx-auto px-6">
@@ -1081,20 +1131,27 @@
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Demo form submission
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
 
             if (name && email && subject && message) {
-                // In a real application, you would send this data to a server
-                alert('Thank you for your message! This is a demo form.');
+                showCustomAlert("Thank you for your interest! Shehap will review your message and get back to you soon.");
                 contactForm.reset();
             } else {
-                alert('Please fill in all fields.');
+                showCustomAlert('Oops! Shehap needs all the info to proceed.');
             }
         });
+
+        function showCustomAlert(message) {
+            document.getElementById('alert-message').textContent = message;
+            document.getElementById('custom-alert').style.display = 'flex';
+        }
+
+        function closeCustomAlert() {
+            document.getElementById('custom-alert').style.display = 'none';
+        }
     </script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93af03e321029aca',t:'MTc0NjQzNTI4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
