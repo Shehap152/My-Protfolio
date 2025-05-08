@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend Developer Portfolio</title>
+    <title>Eng.Shehap</title>
     <script type="text/javascript"
         src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=g1CNehKgZPYn4Hg8__G9Nc8RUL96Rqo98OyU4FVyoszX9d0OgCACOlXI4xO-MFpDt3yRuNmbONqWtAjNov_T3-37-PAB2nrIq9otb9U0HKArux7SVXo6dN_3NmFN7G6EtTZ2kmBN73uVBKAKJHTed80OsOfodE2lOV-m7S6ib-sErG52GfpyPz1jxwbt7-KlMqgn9wbeX1xBZ5yKxJuzfg"
         charset="UTF-8"></script>
@@ -12,220 +12,7 @@
         href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9iYXAzdGZ0eDl3a3J4YTNoLmNhbnZhLWhvc3RlZC1lbWJlZC5jb20vY29kZWxldC9BQUVBRUdKaGNETjBablI0T1hkcmNuaGhNMmdBQUFBQUFaYWt6ZjA4MHpvVHlSbDF6clBGbmtiVEc3TW9XcjlhR0h0LV85dmlMZ29rd0hJOUJRNC8" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-
-        :root {
-            --accent: #6366f1;
-            --dark: #0f172a;
-            --darker: #020617;
-            --light: #f8fafc;
-            --card: #1e293b;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--darker);
-            color: var(--light);
-        }
-
-        .space-font {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .accent-glow {
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-        }
-
-        .card {
-            background-color: var(--card);
-            border-radius: 0.75rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #4f46e5;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .progress-bar {
-            height: 6px;
-            background-color: #334155;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: var(--accent);
-            border-radius: 3px;
-        }
-
-        .grid-pattern {
-            background-image:
-                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-        }
-
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .contact-input {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            color: var(--light);
-            transition: all 0.3s ease;
-        }
-
-        .contact-input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
-            outline: none;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .tech-icon {
-            transition: all 0.3s ease;
-        }
-
-        .tech-icon:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 23, 42, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .custom-alert {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .alert-box {
-            background: #1e1e1e;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .alert-header {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .alert-box button {
-            padding: 8px 20px;
-            background: #9cf;
-            color: #000;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
 <body class="grid-pattern">
@@ -422,10 +209,6 @@
             </div>
         </div>
     </section>
-
-
-
-
     <!-- Projects Section -->
     <section id="projects" class="py-20">
         <div class="container mx-auto px-6">
@@ -956,19 +739,23 @@
                     <div class="mt-8">
                         <h4 class="text-xl font-bold mb-4 text-white">Connect With Me</h4>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/Shehap152/Shehap152" target="_blank"
+                            <a href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer"
+                                title="Visit my GitHub profile"
                                 class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-github text-slate-400"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank"
+                                rel="noopener noreferrer" title="Visit my LinkedIn profile"
                                 class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-linkedin text-slate-400"></i>
                             </a>
-                            <a href="https://x.com/sh_ghazal2003" target="_blank"
+                            <a href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer"
+                                title="Visit my Twitter profile"
                                 class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-twitter text-slate-400"></i>
                             </a>
-                            <a href="https://www.facebook.com/shehap.ghazal" target="_blank"
+                            <a href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer"
+                                title="Visit my Facebook profile"
                                 class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
                                 <i class="fab fa-facebook text-slate-400"></i>
                             </a>
@@ -995,26 +782,25 @@
                         <div>
                             <label for="name" class="block text-slate-400 mb-2">Name</label>
                             <input type="text" id="name" name="user_name"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Name" required>
+                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Name">
                         </div>
 
                         <div>
                             <label for="email" class="block text-slate-400 mb-2">Email</label>
                             <input type="email" id="email" name="user_email"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Email" required>
+                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Email">
                         </div>
 
                         <div>
                             <label for="subject" class="block text-slate-400 mb-2">Subject</label>
                             <input type="text" id="subject" name="subject"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Subject" required>
+                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Subject">
                         </div>
 
                         <div>
                             <label for="message" class="block text-slate-400 mb-2">Message</label>
                             <textarea id="message" name="message" rows="5"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Message"
-                                required></textarea>
+                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Message"></textarea>
                         </div>
 
                         <button type="submit"
@@ -1059,7 +845,7 @@
                 </div>
 
                 <div class="mt-4 md:mt-0">
-                    <a href="#home" class="text-slate-400 hover:text-indigo-500 transition-colors">
+                    <a href="#home" class="text-slate-400 hover:text-indigo-500 transition-colors" title="Back to top">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1070,103 +856,9 @@
             </div>
         </div>
     </footer>
-
-
+    <!-- Scripts -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        emailjs.init("0nI_UnJlWRoyeiF0R");
-    </script>
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Active navigation link
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Form submission
-        const contactForm = document.getElementById('contact-form');
-
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (name && email && subject && message) {
-                emailjs.sendForm('service_tnhwfhd', 'template_is5exmv', contactForm)
-                    .then(() => {
-                        showCustomAlert("Thank you for your interest! Shehap will review your message and get back to you soon.");
-                        contactForm.reset();
-                    })
-                    .catch((error) => {
-                        console.error('EmailJS Error:', error);
-                        showCustomAlert('Oops! Something went wrong. Please try again later.');
-                    });
-            } else {
-                showCustomAlert('Oops! Shehap needs all the info to proceed.');
-            }
-        });
-
-        function showCustomAlert(message) {
-            document.getElementById('alert-message').textContent = message;
-            document.getElementById('custom-alert').style.display = 'flex';
-        }
-
-        function closeCustomAlert() {
-            document.getElementById('custom-alert').style.display = 'none';
-        }
-    </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93af03e321029aca',t:'MTc0NjQzNTI4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <script src="JS/scripts.js"></script>
 </body>
 
 </html>
