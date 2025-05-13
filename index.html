@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eng.Shehap</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
@@ -23,25 +23,19 @@
             </a>
 
             <!-- Desktop Nav Links -->
+            <div class="flex items-center space-x-4">
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#home" class="nav-link text-slate-300 hover:text-white transition-colors active">HOME</a>
                 <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors">ABOUT</a>
                 <a href="#projects" class="nav-link text-slate-300 hover:text-white transition-colors">PROJECTS</a>
                 <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors">SKILLS</a>
                 <a href="#contact" class="nav-link text-slate-300 hover:text-white transition-colors">CONTACT</a>
-                <!-- Social Icons (Desktop Only) -->
-                <div class="hidden lg:flex items-center space-x-4 ml-4">
-                    <a href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-github text-xl"></i></a>
-                    <a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-linkedin text-xl"></i></a>
-                    <a href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer" title="Twitter" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-twitter text-xl"></i></a>
-                    <a href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-facebook text-xl"></i></a>
-                </div>
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" class="ml-4 text-slate-400 hover:text-indigo-500 transition-colors" title="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
             </div>
-
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="ml-4 text-slate-400 hover:text-indigo-500 transition-colors" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+            </button>
+        </div>
             <!-- Mobile Menu Toggle -->
             <button class="md:hidden text-slate-300 focus:outline-none" id="menu-toggle" title="Toggle Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -528,41 +522,43 @@
                 <p class="mt-4 text-slate-400 max-w-2xl mx-auto">What I can do for you. Choose a plan that fits your needs.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card p-8 text-center">
-                    <i class="fas fa-laptop-code text-4xl text-indigo-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Web Development</h3>
-                    <p class="text-slate-400 mb-4">Modern, responsive websites and web apps.</p>
-                    <div class="text-2xl font-bold text-indigo-500 mb-2">$500+</div>
-                    <a href="#contact" class="btn-primary px-6 py-2 rounded-md font-medium">Start Project</a>
+                <!-- Web Development Card -->
+                <div class="card p-8 text-center bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="flex justify-center mb-4">
+                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-indigo-600/10">
+                    <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
+                    </span>
                 </div>
-                <div class="card p-8 text-center">
-                    <i class="fas fa-paint-brush text-4xl text-indigo-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">UI/UX Design</h3>
-                    <p class="text-slate-400 mb-4">Beautiful, user-friendly interface design.</p>
-                    <div class="text-2xl font-bold text-indigo-500 mb-2">$300+</div>
-                    <a href="#contact" class="btn-primary px-6 py-2 rounded-md font-medium">Start Project</a>
+                <h3 class="font-bold text-xl mb-2 text-white">Web Development</h3>
+                <p class="text-slate-400 mb-4 text-base">Modern, responsive websites and web apps.</p>
+                <div class="text-2xl font-bold text-indigo-500 mb-4">$500+</div>
+                <a href="#contact" class="w-full inline-block py-2 rounded-md font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">Start Project</a>
                 </div>
-                <div class="card p-8 text-center">
-                    <i class="fas fa-search text-4xl text-indigo-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">SEO Optimization</h3>
-                    <p class="text-slate-400 mb-4">Improve your site's visibility and ranking.</p>
-                    <div class="text-2xl font-bold text-indigo-500 mb-2">$200+</div>
-                    <a href="#contact" class="btn-primary px-6 py-2 rounded-md font-medium">Start Project</a>
+                <!-- UI/UX Design Card -->
+                <div class="card p-8 text-center bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="flex justify-center mb-4">
+                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-indigo-600/10">
+                    <i class="fas fa-paint-brush text-2xl text-indigo-600"></i>
+                    </span>
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-white">UI/UX Design</h3>
+                <p class="text-slate-400 mb-4 text-base">Beautiful, user-friendly interface design.</p>
+                <div class="text-2xl font-bold text-indigo-500 mb-4">$300+</div>
+                <a href="#contact" class="w-full inline-block py-2 rounded-md font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">Start Project</a>
+                </div>
+                <!-- SEO Optimization Card -->
+                <div class="card p-8 text-center bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="flex justify-center mb-4">
+                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-indigo-600/10">
+                    <i class="fas fa-search text-2xl text-indigo-600"></i>
+                    </span>
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-white">SEO Optimization</h3>
+                <p class="text-slate-400 mb-4 text-base">Improve your site's visibility and ranking.</p>
+                <div class="text-2xl font-bold text-indigo-500 mb-4">$200+</div>
+                <a href="#contact" class="w-full inline-block py-2 rounded-md font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">Start Project</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Subscription Section -->
-    <section id="newsletter" class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">Subscribe to My Newsletter</h2>
-            <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
-            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Get the latest updates on my projects, articles, and frontend tips. No spam, just value!</p>
-            <form class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
-                <input type="email" placeholder="Your Email" class="contact-input px-4 py-3 rounded-lg w-full sm:w-auto" required>
-                <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-medium">Subscribe</button>
-            </form>
         </div>
     </section>
 
@@ -621,8 +617,8 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="card p-6 flex flex-col items-center text-center">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
-                    <blockquote class="text-slate-300 mb-4">“Shehap is a talented developer who delivers high-quality work on time. Highly recommended!”</blockquote>
+                    <img src="image/salah.png" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
+                    <blockquote class="text-slate-300 mb-4">"Shehap is a talented developer who delivers high-quality work on time. Highly recommended!"</blockquote>
                     <div class="flex items-center mb-2">
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
@@ -630,12 +626,12 @@
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                         <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
                     </div>
-                    <div class="text-indigo-500 font-bold">John Doe</div>
+                    <div class="text-indigo-500 font-bold">Ahmed Salah</div>
                     <div class="text-slate-400 text-sm">CEO, ExampleCorp</div>
                 </div>
                 <div class="card p-6 flex flex-col items-center text-center">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
-                    <blockquote class="text-slate-300 mb-4">“Great communicator and problem solver. The project exceeded our expectations!”</blockquote>
+                    <img src="image/sara.png" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
+                    <blockquote class="text-slate-300 mb-4">"Great communicator and problem solver. The project exceeded our expectations!"</blockquote>
                     <div class="flex items-center mb-2">
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
@@ -643,12 +639,12 @@
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                     </div>
-                    <div class="text-indigo-500 font-bold">Jane Smith</div>
+                    <div class="text-indigo-500 font-bold">Sara Younis</div>
                     <div class="text-slate-400 text-sm">Product Manager, Webify</div>
                 </div>
                 <div class="card p-6 flex flex-col items-center text-center">
-                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
-                    <blockquote class="text-slate-300 mb-4">“Shehap's attention to detail and technical expertise made a huge difference in our project's success.”</blockquote>
+                    <img src="image/gehad.png" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
+                    <blockquote class="text-slate-300 mb-4">"Shehap's attention to detail and technical expertise made a huge difference in our project's success."</blockquote>
                     <div class="flex items-center mb-2">
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
@@ -656,7 +652,7 @@
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                         <span class="text-yellow-400"><i class="fas fa-star"></i></span>
                     </div>
-                    <div class="text-indigo-500 font-bold">Michael Lee</div>
+                    <div class="text-indigo-500 font-bold">Mohamed Gehad</div>
                     <div class="text-slate-400 text-sm">Lead Designer, Creatix</div>
                 </div>
             </div>
@@ -671,7 +667,7 @@
                     Resume & Experience
                 </h2>
                 <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <a href="CV.pdf" download class="btn-outline px-6 py-2 rounded-md font-medium mt-6 inline-block">
+                <a href="CV.html"  download class="btn-outline px-6 py-2 rounded-md font-medium mt-6 inline-block">
                     <i class="fas fa-download mr-2"></i>Download CV
                 </a>
             </div>
@@ -1008,6 +1004,15 @@
                                 <i class="fab fa-facebook text-slate-400"></i>
                             </a>
                         </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold mb-4 text-white">Subscribe to My Newsletter</h4>
+                        <p class="text-slate-400 mb-4">Get the latest updates on my projects, articles, and frontend tips. No spam, just value!</p>
+                        <form class="flex flex-col sm:flex-row gap-4">
+                            <input type="email" placeholder="Your Email" class="contact-input px-4 py-3 rounded-lg w-full" required>
+                            <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-medium whitespace-nowrap">Subscribe</button>
+                        </form>
                     </div>
 
                     <div class="mt-8 p-6 bg-slate-800 rounded-lg">
