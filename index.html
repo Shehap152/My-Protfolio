@@ -14,23 +14,38 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold space-font text-white">
-                <span class="text-indigo-500">Sh.</span>Portfolio
+            <!-- Custom Logo -->
+            <a href="#home" class="flex items-center space-x-2 text-2xl font-bold space-font text-white">
+                <span class="bg-indigo-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl shadow-lg">
+                    <i class="fas fa-code"></i>
+                </span>
+                <span class="text-indigo-500">Sh.</span><span class="text-slate-900 dark:text-white">Portfolio</span>
             </a>
 
-            <div class="hidden md:flex space-x-8">
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex space-x-8 items-center">
                 <a href="#home" class="nav-link text-slate-300 hover:text-white transition-colors active">HOME</a>
                 <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors">ABOUT</a>
                 <a href="#projects" class="nav-link text-slate-300 hover:text-white transition-colors">PROJECTS</a>
                 <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors">SKILLS</a>
                 <a href="#contact" class="nav-link text-slate-300 hover:text-white transition-colors">CONTACT</a>
+                <!-- Social Icons (Desktop Only) -->
+                <div class="hidden lg:flex items-center space-x-4 ml-4">
+                    <a href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-github text-xl"></i></a>
+                    <a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer" title="Twitter" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon text-slate-400 hover:text-indigo-500"><i class="fab fa-facebook text-xl"></i></a>
+                </div>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="ml-4 text-slate-400 hover:text-indigo-500 transition-colors" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
 
+            <!-- Mobile Menu Toggle -->
             <button class="md:hidden text-slate-300 focus:outline-none" id="menu-toggle" title="Toggle Menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
@@ -484,6 +499,244 @@
                             d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Case Study Modal (hidden by default) -->
+    <div id="case-study-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-slate-900 text-white p-8 rounded-xl w-full max-w-2xl relative">
+            <button onclick="document.getElementById('case-study-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-indigo-500" title="Close Case Study"><i class="fas fa-times"></i></button>
+            <h3 class="text-2xl font-bold mb-4">Project Case Study</h3>
+            <p class="mb-2 text-indigo-400">Before/After Comparison</p>
+            <div class="flex gap-4 mb-4">
+                <img src="https://via.placeholder.com/150x100?text=Before" alt="Before" class="rounded-lg w-1/2">
+                <img src="https://via.placeholder.com/150x100?text=After" alt="After" class="rounded-lg w-1/2">
+            </div>
+            <p class="mb-2">Challenges: <span class="text-slate-300">Describe the main challenges here.</span></p>
+            <p class="mb-2">Solutions: <span class="text-slate-300">Describe the solutions here.</span></p>
+            <p class="mb-2">Results: <span class="text-slate-300">Share metrics or outcomes here.</span></p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">Services</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">What I can do for you. Choose a plan that fits your needs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 text-center">
+                    <i class="fas fa-laptop-code text-4xl text-indigo-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Web Development</h3>
+                    <p class="text-slate-400 mb-4">Modern, responsive websites and web apps.</p>
+                    <div class="text-2xl font-bold text-indigo-500 mb-2">$500+</div>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-md font-medium">Start Project</a>
+                </div>
+                <div class="card p-8 text-center">
+                    <i class="fas fa-paint-brush text-4xl text-indigo-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">UI/UX Design</h3>
+                    <p class="text-slate-400 mb-4">Beautiful, user-friendly interface design.</p>
+                    <div class="text-2xl font-bold text-indigo-500 mb-2">$300+</div>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-md font-medium">Start Project</a>
+                </div>
+                <div class="card p-8 text-center">
+                    <i class="fas fa-search text-4xl text-indigo-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">SEO Optimization</h3>
+                    <p class="text-slate-400 mb-4">Improve your site's visibility and ranking.</p>
+                    <div class="text-2xl font-bold text-indigo-500 mb-2">$200+</div>
+                    <a href="#contact" class="btn-primary px-6 py-2 rounded-md font-medium">Start Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section id="newsletter" class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">Subscribe to My Newsletter</h2>
+            <div class="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">Get the latest updates on my projects, articles, and frontend tips. No spam, just value!</p>
+            <form class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
+                <input type="email" placeholder="Your Email" class="contact-input px-4 py-3 rounded-lg w-full sm:w-auto" required>
+                <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-medium">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Blog/Articles Section -->
+    <section id="blog" class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
+                    Blog & Articles
+                </h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                    Sharing tutorials, case studies, and insights about frontend development.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="card p-6">
+                    <header class="mb-4">
+                        <h3 class="text-xl font-bold space-font text-white mb-2">How to Build a Responsive Navbar</h3>
+                        <time class="text-xs text-slate-400">May 2024</time>
+                    </header>
+                    <p class="text-slate-300 mb-4">A step-by-step guide to creating a modern, responsive navigation bar using HTML, CSS, and JavaScript.</p>
+                    <a href="#" class="text-indigo-500 hover:underline">Read More</a>
+                </article>
+                <article class="card p-6">
+                    <header class="mb-4">
+                        <h3 class="text-xl font-bold space-font text-white mb-2">CSS Grid vs Flexbox: When to Use Which?</h3>
+                        <time class="text-xs text-slate-400">April 2024</time>
+                    </header>
+                    <p class="text-slate-300 mb-4">An in-depth comparison of CSS Grid and Flexbox, with practical examples and use cases.</p>
+                    <a href="#" class="text-indigo-500 hover:underline">Read More</a>
+                </article>
+                <article class="card p-6">
+                    <header class="mb-4">
+                        <h3 class="text-xl font-bold space-font text-white mb-2">Improving Web Accessibility</h3>
+                        <time class="text-xs text-slate-400">March 2024</time>
+                    </header>
+                    <p class="text-slate-300 mb-4">Tips and best practices for making your websites accessible to everyone.</p>
+                    <a href="#" class="text-indigo-500 hover:underline">Read More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
+                    Testimonials
+                </h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                    What clients and colleagues say about working with me.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
+                    <blockquote class="text-slate-300 mb-4">“Shehap is a talented developer who delivers high-quality work on time. Highly recommended!”</blockquote>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
+                    </div>
+                    <div class="text-indigo-500 font-bold">John Doe</div>
+                    <div class="text-slate-400 text-sm">CEO, ExampleCorp</div>
+                </div>
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
+                    <blockquote class="text-slate-300 mb-4">“Great communicator and problem solver. The project exceeded our expectations!”</blockquote>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                    </div>
+                    <div class="text-indigo-500 font-bold">Jane Smith</div>
+                    <div class="text-slate-400 text-sm">Product Manager, Webify</div>
+                </div>
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
+                    <blockquote class="text-slate-300 mb-4">“Shehap's attention to detail and technical expertise made a huge difference in our project's success.”</blockquote>
+                    <div class="flex items-center mb-2">
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                    </div>
+                    <div class="text-indigo-500 font-bold">Michael Lee</div>
+                    <div class="text-slate-400 text-sm">Lead Designer, Creatix</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Resume/CV Section -->
+    <section id="resume" class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
+                    Resume & Experience
+                </h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
+                <a href="CV.pdf" download class="btn-outline px-6 py-2 rounded-md font-medium mt-6 inline-block">
+                    <i class="fas fa-download mr-2"></i>Download CV
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Timeline -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-indigo-500">Work Experience</h3>
+                    <ul class="border-l-2 border-indigo-500 pl-6">
+                        <li class="mb-8">
+                            <div class="text-slate-300 font-semibold">Frontend Developer</div>
+                            <div class="text-slate-400 text-sm mb-1">Tech Solutions Inc. | 2023 - Present</div>
+                            <div class="text-slate-500 text-xs">Developed modern web apps using React and Tailwind CSS.</div>
+                        </li>
+                        <li class="mb-8">
+                            <div class="text-slate-300 font-semibold">Web Designer</div>
+                            <div class="text-slate-400 text-sm mb-1">Creative Studio | 2022 - 2023</div>
+                            <div class="text-slate-500 text-xs">Designed and built responsive websites for clients.</div>
+                        </li>
+                        <li>
+                            <div class="text-slate-300 font-semibold">Intern</div>
+                            <div class="text-slate-400 text-sm mb-1">Startup Hub | 2021 - 2022</div>
+                            <div class="text-slate-500 text-xs">Assisted in frontend development and UI/UX design.</div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Skills Visualization -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-indigo-500">Skills</h3>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-slate-300">JavaScript</span>
+                            <span class="text-indigo-500">90%</span>
+                        </div>
+                        <div class="progress-bar rounded-full">
+                            <div class="progress rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-slate-300">React</span>
+                            <span class="text-indigo-500">85%</span>
+                        </div>
+                        <div class="progress-bar rounded-full">
+                            <div class="progress rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-slate-300">CSS / Tailwind</span>
+                            <span class="text-indigo-500">95%</span>
+                        </div>
+                        <div class="progress-bar rounded-full">
+                            <div class="progress rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="text-slate-300">UI/UX Design</span>
+                            <span class="text-indigo-500">80%</span>
+                        </div>
+                        <div class="progress-bar rounded-full">
+                            <div class="progress rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
