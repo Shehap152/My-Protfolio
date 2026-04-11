@@ -3,129 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shehap Ghazal - CV</title>
+    <title>Shihab Ghazal | CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            color-scheme: dark;
+            --bg: #07111f;
+            --panel: #0f1c2d;
+            --panel-soft: #13243a;
+            --text: #e5edf8;
+            --muted: #9cb0c9;
+            --line: rgba(156, 176, 201, 0.18);
+            --accent: #63e6be;
+            --accent-soft: rgba(99, 230, 190, 0.12);
+            --secondary: #7cc8ff;
+            --title: #f8fbff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: #0f172a;
-            color: #f8fafc;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(124, 200, 255, 0.18), transparent 32%),
+                linear-gradient(160deg, #050b14 0%, #07111f 42%, #0a1727 100%);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 32px));
+            margin: 32px auto;
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            background: rgba(8, 15, 27, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(14px);
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, rgba(19, 36, 58, 0.96), rgba(10, 21, 36, 0.98));
+            padding: 40px 28px;
+            border-right: 1px solid var(--line);
+        }
+
+        .main {
+            padding: 40px 36px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        h1, h2, h3, p {
+            margin-top: 0;
+        }
+
+        h1 {
+            color: var(--title);
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .role {
+            color: var(--secondary);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .summary {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        .contact-list,
+        .social-list,
+        .meta-list {
+            display: grid;
+            gap: 12px;
             margin: 0;
             padding: 0;
+            list-style: none;
         }
-        .container {
-            max-width: 700px;
-            margin: 40px auto;
-            background: #1e293b;
-            border-radius: 18px;
-            box-shadow: 0 4px 32px #0004;
-            padding: 40px 32px;
+
+        .contact-list a,
+        .social-list a,
+        .mini-list a {
+            color: inherit;
+            text-decoration: none;
         }
-        h1 {
-            color: #6366f1;
-            font-size: 2.5rem;
-            margin-bottom: 0.2em;
+
+        .contact-item,
+        .social-item,
+        .meta-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--muted);
         }
-        h2 {
-            color: #818cf8;
-            font-size: 1.3rem;
-            margin-top: 2em;
-            margin-bottom: 0.5em;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 0.2em;
+
+        .contact-item i,
+        .social-item i,
+        .meta-item i {
+            color: var(--accent);
+            width: 18px;
+            margin-top: 5px;
         }
-        .contact {
-            margin-bottom: 1.5em;
+
+        .block {
+            margin-top: 32px;
         }
-        .contact span {
-            display: inline-block;
-            margin-right: 18px;
-            color: #a5b4fc;
+
+        .block:first-child {
+            margin-top: 0;
         }
-        .section {
-            margin-bottom: 1.5em;
+
+        .block-title {
+            color: var(--title);
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
         }
-        ul {
-            padding-left: 1.2em;
-        }
-        .skills {
+
+        .chips {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        .skill {
-            background: #334155;
-            color: #a5b4fc;
-            border-radius: 8px;
-            padding: 6px 14px;
-            font-size: 0.98em;
+
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            font-size: 0.92rem;
         }
-        .job {
-            margin-bottom: 1em;
+
+        .section {
+            margin-bottom: 34px;
         }
-        .job-title {
-            color: #f472b6;
-            font-weight: bold;
+
+        .section-title {
+            color: var(--title);
+            font-size: 1.18rem;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--line);
         }
-        .company {
-            color: #38bdf8;
+
+        .timeline {
+            display: grid;
+            gap: 16px;
         }
-        .year {
-            color: #a5b4fc;
-            font-size: 0.95em;
+
+        .card {
+            background: linear-gradient(180deg, rgba(19, 36, 58, 0.72), rgba(13, 28, 46, 0.92));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .card-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .card-head h3 {
+            color: var(--title);
+            font-size: 1.02rem;
+            margin-bottom: 6px;
+        }
+
+        .card-label {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .card-time {
+            color: var(--muted);
+            white-space: nowrap;
+            font-size: 0.92rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+
+        .mini-list {
+            margin: 12px 0 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .mini-list li + li {
+            margin-top: 6px;
+        }
+
+        .grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        @media (max-width: 860px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .main,
+            .sidebar {
+                padding: 28px 22px;
+            }
+
+            .grid-two {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Shehap Ghazal</h1>
-        <div class="contact">
-            <span><i class="fas fa-envelope"></i> sh.s.ghazal2003@gmail.com</span>
-            <span><i class="fas fa-phone"></i> +20 1010920472</span>
-            <span><i class="fas fa-map-marker-alt"></i> Sharqia, Zagazig</span>
-        </div>
-        <div class="section">
-            <p>Passionate Frontend Developer with experience in building beautiful, responsive, and user-friendly interfaces. Skilled in modern JavaScript frameworks, CSS architecture, and UI/UX best practices. Dedicated to delivering pixel-perfect, accessible, and high-performance web experiences.</p>
-        </div>
-        <h2>Experience</h2>
-        <div class="section">
-            <div class="job">
-                <div class="job-title">Frontend Developer</div>
-                <div class="company">Tech Solutions Inc.</div>
-                <div class="year">2023 - Present</div>
-                <div>Developed modern web apps using React and Tailwind CSS.</div>
+        <aside class="sidebar">
+            <span class="eyebrow">CV / Resume</span>
+            <h1>Shihab Ghazal</h1>
+            <p class="role">Frontend &amp; Full Stack Developer</p>
+            <p class="summary">
+                Electronics Engineering student with a frontend-first mindset, focused on building polished web interfaces,
+                responsive user experiences, and practical full stack integrations.
+            </p>
+
+            <div class="block">
+                <h2 class="block-title">Contact</h2>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:sh.s.ghazal2003@gmail.com">sh.s.ghazal2003@gmail.com</a></span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span><a href="tel:+201010920472">+20 101 092 0472</a></span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>Zagazig, Sharqia, Egypt</span>
+                    </li>
+                </ul>
             </div>
-            <div class="job">
-                <div class="job-title">Web Designer</div>
-                <div class="company">Creative Studio</div>
-                <div class="year">2022 - 2023</div>
-                <div>Designed and built responsive websites for clients.</div>
+
+            <div class="block">
+                <h2 class="block-title">Profiles</h2>
+                <ul class="social-list">
+                    <li class="social-item">
+                        <i class="fab fa-github"></i>
+                        <span><a href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer">github.com/Shehap152</a></span>
+                    </li>
+                    <li class="social-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span><a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank" rel="noopener noreferrer">linkedin.com/in/shehap-0-ghazal</a></span>
+                    </li>
+                    <li class="social-item">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <span><a href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer">x.com/sh_ghazal2003</a></span>
+                    </li>
+                    <li class="social-item">
+                        <i class="fab fa-facebook"></i>
+                        <span><a href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer">facebook.com/shehap.ghazal</a></span>
+                    </li>
+                </ul>
             </div>
-            <div class="job">
-                <div class="job-title">Intern</div>
-                <div class="company">Startup Hub</div>
-                <div class="year">2021 - 2022</div>
-                <div>Assisted in frontend development and UI/UX design.</div>
+
+            <div class="block">
+                <h2 class="block-title">Core Stack</h2>
+                <div class="chips">
+                    <span class="chip">HTML5</span>
+                    <span class="chip">CSS3</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">Bootstrap</span>
+                    <span class="chip">React.js</span>
+                    <span class="chip">Next.js</span>
+                    <span class="chip">Node.js</span>
+                    <span class="chip">Firebase</span>
+                    <span class="chip">REST APIs</span>
+                    <span class="chip">Git &amp; GitHub</span>
+                    <span class="chip">Responsive Design</span>
+                </div>
             </div>
-        </div>
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill">JavaScript</div>
-            <div class="skill">React</div>
-            <div class="skill">CSS / Tailwind</div>
-            <div class="skill">UI/UX Design</div>
-            <div class="skill">HTML5 & CSS3</div>
-            <div class="skill">SASS/SCSS</div>
-            <div class="skill">Git & GitHub</div>
-            <div class="skill">Figma</div>
-            <div class="skill">Performance Optimization</div>
-            <div class="skill">Web Accessibility</div>
-        </div>
-        <h2>Education</h2>
-        <div class="section">
-            <div>Factuly of Engineering at Zagazig University</div>
-            <div class="year">Undergraduated</div>
-        </div>
+
+            <div class="block">
+                <h2 class="block-title">Focus Areas</h2>
+                <ul class="meta-list">
+                    <li class="meta-item"><i class="fas fa-check"></i><span>Premium UI implementation</span></li>
+                    <li class="meta-item"><i class="fas fa-check"></i><span>Responsive frontend systems</span></li>
+                    <li class="meta-item"><i class="fas fa-check"></i><span>Interactive product experiences</span></li>
+                    <li class="meta-item"><i class="fas fa-check"></i><span>API and Firebase integration</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main">
+            <section class="section">
+                <h2 class="section-title">Profile</h2>
+                <p>
+                    I build interfaces that feel intentional, vivid, and high-performing. My background in Electronics
+                    Engineering strengthened my systems thinking, while frontend development became the space where I turn
+                    ideas into elegant digital products. I care about clean structure, scalable code, visual polish, and
+                    the small interaction details that make a product feel premium.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="card">
+                    <div class="card-head">
+                        <div>
+                            <h3>Faculty of Engineering, Zagazig University</h3>
+                            <div class="card-label">Electronics Engineering Student</div>
+                        </div>
+                        <div class="card-time">In Progress</div>
+                    </div>
+                    <p>
+                        Developing a strong engineering mindset while growing in frontend development, full stack workflows,
+                        and product-focused web implementation.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experience Highlights</h2>
+                <div class="timeline">
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Frontend Development</h3>
+                                <div class="card-label">Portfolio, landing pages, and interactive interfaces</div>
+                            </div>
+                        </div>
+                        <p>
+                            Building responsive interfaces with strong visual hierarchy, smooth interactions, and a focus
+                            on maintainable structure.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Web App UI Implementation</h3>
+                                <div class="card-label">Dashboards and product-style experiences</div>
+                            </div>
+                        </div>
+                        <p>
+                            Translating modern UI ideas into clean frontends using HTML, CSS, JavaScript, and React-driven
+                            thinking for scalable delivery.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>API &amp; Firebase Integration</h3>
+                                <div class="card-label">Practical full stack workflows</div>
+                            </div>
+                        </div>
+                        <p>
+                            Connecting interfaces to live data, moderation flows, and real functionality using Firebase,
+                            Node.js, and REST APIs.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Selected Projects</h2>
+                <div class="timeline">
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Yummy Restaurant</h3>
+                                <div class="card-label">Frontend / Responsive UI</div>
+                            </div>
+                            <div class="card-time">HTML, CSS, JavaScript</div>
+                        </div>
+                        <p>
+                            A restaurant web experience focused on polished presentation, responsive layouts, and stronger
+                            product storytelling.
+                        </p>
+                        <ul class="mini-list">
+                            <li>Live: <a href="https://shehap152.github.io/frontend-project/" target="_blank" rel="noopener noreferrer">shehap152.github.io/frontend-project</a></li>
+                            <li>GitHub: <a href="https://github.com/Shehap152/frontend-project" target="_blank" rel="noopener noreferrer">github.com/Shehap152/frontend-project</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Analytics Dashboard</h3>
+                                <div class="card-label">UI Systems / Dashboard Design</div>
+                            </div>
+                            <div class="card-time">HTML5, SCSS</div>
+                        </div>
+                        <p>
+                            A clean dashboard concept built around structure, readability, and a modern admin interface
+                            visual language.
+                        </p>
+                        <ul class="mini-list">
+                            <li>Live: <a href="https://dashboardsh.netlify.app/" target="_blank" rel="noopener noreferrer">dashboardsh.netlify.app</a></li>
+                            <li>GitHub: <a href="https://github.com/Shehap152/HTML_And_CSS_project_4" target="_blank" rel="noopener noreferrer">github.com/Shehap152/HTML_And_CSS_project_4</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Genius Store</h3>
+                                <div class="card-label">Full Stack / E-commerce Concept</div>
+                            </div>
+                            <div class="card-time">React, REST API</div>
+                        </div>
+                        <p>
+                            An e-commerce project that highlights scalable interface thinking, product-focused layouts, and
+                            practical frontend-to-data integration.
+                        </p>
+                        <ul class="mini-list">
+                            <li>GitHub: <a href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer">github.com/Shehap152</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Family Bakery</h3>
+                                <div class="card-label">Frontend / Brand Experience</div>
+                            </div>
+                            <div class="card-time">HTML, CSS</div>
+                        </div>
+                        <p>
+                            A warm brand website centered on visual storytelling, layout hierarchy, and inviting
+                            conversion-friendly presentation.
+                        </p>
+                        <ul class="mini-list">
+                            <li>GitHub: <a href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer">github.com/Shehap152</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Skills Summary</h2>
+                <div class="grid-two">
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Frontend Foundations</h3>
+                                <div class="card-label">Semantic markup, layout, responsiveness</div>
+                            </div>
+                            <div class="card-time">95%</div>
+                        </div>
+                        <p>Strong command of semantic HTML, expressive CSS, accessibility awareness, and responsive execution.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>JavaScript Interactions</h3>
+                                <div class="card-label">UI state, validation, dynamic behavior</div>
+                            </div>
+                            <div class="card-time">90%</div>
+                        </div>
+                        <p>Comfortable building smooth interactions, handling forms, filtering content, and structuring UI logic.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>React Ecosystem</h3>
+                                <div class="card-label">Component-driven thinking</div>
+                            </div>
+                            <div class="card-time">88%</div>
+                        </div>
+                        <p>Using React and modern frontend patterns to create maintainable, product-focused interfaces.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-head">
+                            <div>
+                                <h3>Full Stack Integration</h3>
+                                <div class="card-label">Node.js, Firebase, REST APIs</div>
+                            </div>
+                            <div class="card-time">84%</div>
+                        </div>
+                        <p>Connecting frontend experiences to data and functionality with practical backend integration workflows.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 </body>
-</html> 
+</html>

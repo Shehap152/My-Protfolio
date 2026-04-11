@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shihab portfolio comment moderation dashboard.">
+    <title>Shihab | Comments Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body class="admin-body">
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <main class="admin-page">
+        <div class="container admin-page__shell">
+            <section class="admin-hero glass-card">
+                <div>
+                    <p class="eyebrow">Admin dashboard</p>
+                    <h1>Approve portfolio comments from one place.</h1>
+                    <p class="admin-hero__lede">
+                        Sign in with your Firebase admin account to review pending comments, approve the good ones, or hide anything you do not want published.
+                    </p>
+                </div>
+                <a class="button button--ghost" href="index.html#comments">Back to site</a>
+            </section>
+
+            <section class="admin-auth glass-card" id="admin-auth-shell">
+                <div class="comments__header">
+                    <div>
+                        <h3>Admin login</h3>
+                        <p>Use Firebase Email/Password authentication for the moderation account.</p>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="admin-login-form" novalidate>
+                    <div class="field">
+                        <label for="admin-email">Email</label>
+                        <input id="admin-email" name="adminEmail" type="email" placeholder="admin@example.com">
+                    </div>
+                    <div class="field">
+                        <label for="admin-password">Password</label>
+                        <input id="admin-password" name="adminPassword" type="password" placeholder="Your password">
+                    </div>
+                    <button class="button button--primary" type="submit">Sign in</button>
+                    <p class="form-status" id="admin-login-status" aria-live="polite"></p>
+                </form>
+            </section>
+
+            <section class="admin-dashboard" id="admin-dashboard-shell" hidden>
+                <div class="admin-dashboard__top">
+                    <div class="glass-card admin-user">
+                        <div>
+                            <p class="eyebrow">Signed in</p>
+                            <h2 id="admin-user-email">Admin</h2>
+                            <p class="admin-dashboard__status" id="admin-dashboard-status" aria-live="polite"></p>
+                        </div>
+                        <button class="button button--ghost" id="admin-signout" type="button">Sign out</button>
+                    </div>
+
+                    <div class="admin-stats">
+                        <article class="glass-card admin-stat">
+                            <span>Total</span>
+                            <strong id="stat-total">0</strong>
+                        </article>
+                        <article class="glass-card admin-stat">
+                            <span>Pending</span>
+                            <strong id="stat-pending">0</strong>
+                        </article>
+                        <article class="glass-card admin-stat">
+                            <span>Approved</span>
+                            <strong id="stat-approved">0</strong>
+                        </article>
+                        <article class="glass-card admin-stat">
+                            <span>Hidden</span>
+                            <strong id="stat-hidden">0</strong>
+                        </article>
+                    </div>
+                </div>
+
+                <section class="glass-card admin-comments">
+                    <div class="comments__header">
+                        <div>
+                            <h3>Comment queue</h3>
+                            <p>Filter the stream, then approve, hide, or permanently delete any entry.</p>
+                        </div>
+                    </div>
+
+                    <div class="filter-group admin-filters" role="tablist" aria-label="Filter comments">
+                        <button class="filter-button admin-filter is-active" type="button" data-filter="all">All</button>
+                        <button class="filter-button admin-filter" type="button" data-filter="pending">Pending</button>
+                        <button class="filter-button admin-filter" type="button" data-filter="approved">Approved</button>
+                        <button class="filter-button admin-filter" type="button" data-filter="hidden">Hidden</button>
+                    </div>
+
+                    <div class="comments__list" id="admin-comments-list"></div>
+                    <p class="comments__empty" id="admin-comments-empty">No comments match the selected filter.</p>
+                </section>
+
+                <section class="glass-card admin-profile">
+                    <div class="comments__header">
+                        <div>
+                            <h3>Hero content</h3>
+                            <p>Edit the hero card, profile image, badges, and the quick intro content from here.</p>
+                        </div>
+                    </div>
+
+                    <form class="admin-project-form" id="admin-profile-form" novalidate>
+                        <div class="admin-form-grid">
+                            <div class="field">
+                                <label for="hero-name">Top line name</label>
+                                <input id="hero-name" name="heroName" type="text" placeholder="Shihab">
+                            </div>
+                            <div class="field">
+                                <label for="hero-role">Top line role</label>
+                                <input id="hero-role" name="heroRole" type="text" placeholder="Frontend + Full Stack">
+                            </div>
+                            <div class="field">
+                                <label for="hero-photo-file">Profile image file</label>
+                                <input id="hero-photo-file" name="heroPhotoFile" type="file" accept="image/*">
+                            </div>
+                            <div class="field">
+                                <label for="hero-photo-alt">Profile image alt</label>
+                                <input id="hero-photo-alt" name="heroPhotoAlt" type="text" placeholder="Portrait of Shihab">
+                            </div>
+                            <div class="field">
+                                <label for="hero-photo-url">Current image URL</label>
+                                <input id="hero-photo-url" name="heroPhotoUrl" type="text" placeholder="images/me.png">
+                            </div>
+                            <div class="field">
+                                <label for="hero-based">Based in</label>
+                                <input id="hero-based" name="heroBasedIn" type="text" placeholder="Zagazig, Egypt">
+                            </div>
+                            <div class="field">
+                                <label for="hero-open">Open to</label>
+                                <input id="hero-open" name="heroOpenTo" type="text" placeholder="Freelance & collaboration">
+                            </div>
+                            <div class="field">
+                                <label for="hero-badge-alpha-label-field">Badge 1 label</label>
+                                <input id="hero-badge-alpha-label-field" name="heroBadgeAlphaLabel" type="text" placeholder="Frontend craft">
+                            </div>
+                            <div class="field">
+                                <label for="hero-badge-alpha-title-field">Badge 1 title</label>
+                                <input id="hero-badge-alpha-title-field" name="heroBadgeAlphaTitle" type="text" placeholder="Premium UI">
+                            </div>
+                            <div class="field">
+                                <label for="hero-badge-beta-label-field">Badge 2 label</label>
+                                <input id="hero-badge-beta-label-field" name="heroBadgeBetaLabel" type="text" placeholder="Engineering">
+                            </div>
+                            <div class="field">
+                                <label for="hero-badge-beta-title-field">Badge 2 title</label>
+                                <input id="hero-badge-beta-title-field" name="heroBadgeBetaTitle" type="text" placeholder="Structured code">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="hero-panel-text-field">Panel intro text</label>
+                            <textarea id="hero-panel-text-field" name="heroPanelText" rows="3" placeholder="Building premium interfaces with engineering discipline and design sensitivity."></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="hero-panel-items">Panel bullet points</label>
+                            <input id="hero-panel-items" name="heroPanelItems" type="text" placeholder="Responsive design systems, Interactive product experiences, Modern web app implementation">
+                        </div>
+
+                        <div class="admin-form-actions">
+                            <button class="button button--primary" type="submit">Save hero content</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="glass-card admin-skills">
+                    <div class="comments__header">
+                        <div>
+                            <h3>Skills manager</h3>
+                            <p>Add skill pills and progress cards, or edit and remove existing ones whenever you want.</p>
+                        </div>
+                    </div>
+
+                    <form class="admin-project-form" id="admin-skill-form" novalidate>
+                        <input id="skill-edit-id" name="skillEditId" type="hidden">
+
+                        <div class="admin-form-grid">
+                            <div class="field">
+                                <label for="skill-kind">Skill type</label>
+                                <select id="skill-kind" name="skillKind">
+                                    <option value="pill">Skill pill</option>
+                                    <option value="meter">Progress card</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="skill-title">Title</label>
+                                <input id="skill-title" name="skillTitle" type="text" placeholder="React ecosystem">
+                            </div>
+                            <div class="field">
+                                <label for="skill-order">Order</label>
+                                <input id="skill-order" name="skillOrder" type="number" min="1" placeholder="1">
+                            </div>
+                            <div class="field">
+                                <label for="skill-progress">Progress %</label>
+                                <input id="skill-progress" name="skillProgress" type="number" min="0" max="100" placeholder="88">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="skill-description">Description</label>
+                            <textarea id="skill-description" name="skillDescription" rows="3" placeholder="Component thinking, modern app structure, and product-focused interface delivery."></textarea>
+                        </div>
+
+                        <div class="admin-form-actions">
+                            <button class="button button--primary" type="submit">Save skill</button>
+                            <button class="button button--ghost" type="button" id="skill-reset-button">Clear skill form</button>
+                        </div>
+                    </form>
+
+                    <div class="comments__list admin-projects-list" id="admin-skills-list"></div>
+                    <p class="comments__empty" id="admin-skills-empty">No skills found yet.</p>
+                </section>
+
+                <section class="glass-card admin-projects">
+                    <div class="comments__header">
+                        <div>
+                            <h3>Projects manager</h3>
+                            <p>Add new projects, edit existing ones, or remove cards you no longer want on the portfolio.</p>
+                        </div>
+                    </div>
+
+                    <form class="admin-project-form" id="admin-project-form" novalidate>
+                        <input id="project-edit-id" name="projectEditId" type="hidden">
+
+                        <div class="admin-form-grid">
+                            <div class="field">
+                                <label for="project-title">Project name</label>
+                                <input id="project-title" name="projectTitle" type="text" placeholder="Genius Store">
+                            </div>
+                            <div class="field">
+                                <label for="project-image">Image path or URL</label>
+                                <input id="project-image" name="projectImage" type="text" placeholder="images/GeniusStore.png">
+                            </div>
+                            <div class="field">
+                                <label for="project-categories">Categories</label>
+                                <input id="project-categories" name="projectCategories" type="text" placeholder="frontend, fullstack">
+                            </div>
+                            <div class="field">
+                                <label for="project-meta">Top labels</label>
+                                <input id="project-meta" name="projectMeta" type="text" placeholder="Full Stack, E-commerce">
+                            </div>
+                            <div class="field">
+                                <label for="project-tags">Tools used</label>
+                                <input id="project-tags" name="projectTags" type="text" placeholder="React, Firebase, REST API">
+                            </div>
+                            <div class="field">
+                                <label for="project-live">Live URL</label>
+                                <input id="project-live" name="projectLive" type="url" placeholder="https://example.com">
+                            </div>
+                            <div class="field">
+                                <label for="project-github">GitHub URL</label>
+                                <input id="project-github" name="projectGithub" type="url" placeholder="https://github.com/...">
+                            </div>
+                            <div class="field">
+                                <label for="project-alt">Image alt text</label>
+                                <input id="project-alt" name="projectAlt" type="text" placeholder="Project preview image">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="project-description">Description</label>
+                            <textarea id="project-description" name="projectDescription" rows="4" placeholder="Describe the project, value, and what makes it strong."></textarea>
+                        </div>
+
+                        <div class="admin-form-actions">
+                            <button class="button button--primary" type="submit" id="project-submit-button">Save project</button>
+                            <button class="button button--ghost" type="button" id="project-reset-button">Clear form</button>
+                        </div>
+                    </form>
+
+                    <div class="comments__list admin-projects-list" id="admin-projects-list"></div>
+                    <p class="comments__empty" id="admin-projects-empty">No projects found yet.</p>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
+
+    <script type="module" src="JS/admin.js"></script>
+</body>
+</html>

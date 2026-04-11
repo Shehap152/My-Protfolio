@@ -1,1111 +1,598 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eng.Shehap</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta name="description" content="Shihab is an Electronics Engineering student and frontend-focused full stack developer building elegant, high-performance digital experiences.">
+    <title>Shihab | Frontend & Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
-
-<body class="grid-pattern">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Custom Logo -->
-            <a href="#home" class="flex items-center space-x-2 text-2xl font-bold space-font text-white">
-                <span class="bg-indigo-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-xl shadow-lg">
-                    <i class="fas fa-code"></i>
-                </span>
-                <span class="text-indigo-500">Sh.</span><span class="text-slate-900 dark:text-white">Portfolio</span>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <div class="flex items-center space-x-4">
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="nav-link text-slate-300 hover:text-white transition-colors active">HOME</a>
-                <a href="#about" class="nav-link text-slate-300 hover:text-white transition-colors">ABOUT</a>
-                <a href="#projects" class="nav-link text-slate-300 hover:text-white transition-colors">PROJECTS</a>
-                <a href="#skills" class="nav-link text-slate-300 hover:text-white transition-colors">SKILLS</a>
-                <a href="#contact" class="nav-link text-slate-300 hover:text-white transition-colors">CONTACT</a>
-            </div>
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" class="ml-4 text-slate-400 hover:text-indigo-500 transition-colors" title="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-            </button>
-        </div>
-            <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-slate-300 focus:outline-none" id="menu-toggle" title="Toggle Menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-slate-900 border-b border-slate-800" id="mobile-menu">
-            <div class="container mx-auto px-6 py-3 flex flex-col space-y-3">
-                <a href="#home" class="text-slate-300 hover:text-white transition-colors py-2">HOME</a>
-                <a href="#about" class="text-slate-300 hover:text-white transition-colors py-2">ABOUT</a>
-                <a href="#projects" class="text-slate-300 hover:text-white transition-colors py-2">PROJECTS</a>
-                <a href="#skills" class="text-slate-300 hover:text-white transition-colors py-2">SKILLS</a>
-                <a href="#contact" class="text-slate-300 hover:text-white transition-colors py-2">CONTACT</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative">
-        <div class="container mx-auto px-6 py-16">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <div class="mb-4 inline-block">
-                        <span class="bg-indigo-500/10 text-indigo-500 px-4 py-1 rounded-full text-sm font-medium">
-                            Frontend Developer
-                        </span>
-                    </div>
-
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 space-font">
-                        <span class="block">Hi, I'm</span>
-                        <span class="block text-indigo-500">Shehap Ghazal</span>
-                    </h1>
-
-                    <p class="text-slate-400 text-lg mb-8 max-w-lg">
-                        I craft beautiful, responsive, and user-friendly interfaces with modern frontend technologies.
-                        Turning designs into pixel-perfect, interactive experiences is my passion.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#projects" class="btn-primary px-8 py-3 rounded-md font-medium">
-                            View My Work
-                        </a>
-                        <a href="#contact" class="btn-outline px-8 py-3 rounded-md font-medium">
-                            Contact Me
-                        </a>
-                    </div>
-
-                    <div class="mt-10 flex items-center space-x-6">
-                        <a href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer"
-                            title="Visit my GitHub profile" class="social-icon text-slate-400 hover:text-indigo-500">
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank" rel="noopener noreferrer"
-                            title="Visit my LinkedIn profile" class="social-icon text-slate-400 hover:text-indigo-500">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                        <a href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer"
-                            title="Visit my GitHub profile" class="social-icon text-slate-400 hover:text-indigo-500">
-                            <i class="fab fa-twitter text-2xl"></i>
-                        </a>
-                        <a href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer"
-                            title="Visit my GitHub profile" class="social-icon text-slate-400 hover:text-indigo-500">
-                            <i class="fab fa-facebook text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative">
-                        <div
-                            class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-indigo-500/20 flex items-center justify-center animate-float overflow-hidden">
-                            <div
-                                class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
-                                <img src="image/me.png" alt="Shehap ghazal"
-                                    class="w-full h-full object-cover rounded-full">
-                            </div>
-                        </div>
-
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-lg bg-indigo-500/20 animate-float"
-                            style="animation-delay: 0.5s"></div>
-                        <div class="absolute -top-4 -left-4 w-16 h-16 rounded-lg bg-indigo-500/20 animate-float"
-                            style="animation-delay: 1s"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    About <span class="text-indigo-500">Me</span>
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1">
-                    <h3 class="text-2xl font-bold mb-6 space-font text-indigo-500">My Journey</h3>
-
-                    <p class="text-slate-300 mb-4">
-                        I'm a passionate frontend developer with over 1 years of experience creating beautiful and
-                        functional user interfaces. My journey began with a fascination for how design and code come
-                        together to create engaging digital experiences.
-                    </p>
-
-                    <p class="text-slate-300 mb-4">
-                        I specialize in translating designs into pixel-perfect, responsive websites and applications. My
-                        expertise includes modern JavaScript frameworks, CSS architecture, animations, and accessibility
-                        best practices.
-                    </p>
-
-                    <p class="text-slate-300 mb-6">
-                        When I'm not coding, I enjoy exploring new design trends, contributing to open-source projects,
-                        and sharing my knowledge through blog posts and community events.
-                    </p>
-
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 bg-slate-800 text-indigo-400 rounded-full text-sm">Creative</span>
-                        <span class="px-3 py-1 bg-slate-800 text-indigo-400 rounded-full text-sm">Detail-Oriented</span>
-                        <span class="px-3 py-1 bg-slate-800 text-indigo-400 rounded-full text-sm">Problem Solver</span>
-                        <span class="px-3 py-1 bg-slate-800 text-indigo-400 rounded-full text-sm">UI Enthusiast</span>
-                    </div>
-                </div>
-                <!-- Cards -->
-                <div class="order-1 md:order-2">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div class="card p-6">
-                            <div class="text-4xl text-indigo-500 mb-4">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 space-font">Clean Code</h4>
-                            <p class="text-slate-400">
-                                Writing maintainable, semantic, and well-structured code that's easy to understand and
-                                scale.
-                            </p>
-                        </div>
-
-                        <div class="card p-6">
-                            <div class="text-4xl text-indigo-500 mb-4">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 space-font">UI Design</h4>
-                            <p class="text-slate-400">
-                                Creating visually appealing interfaces with attention to typography, color, and layout.
-                            </p>
-                        </div>
-
-                        <div class="card p-6">
-                            <div class="text-4xl text-indigo-500 mb-4">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 space-font">Responsive</h4>
-                            <p class="text-slate-400">
-                                Building interfaces that work flawlessly across all devices and screen sizes.
-                            </p>
-                        </div>
-
-                        <div class="card p-6">
-                            <div class="text-4xl text-indigo-500 mb-4">
-                                <i class="fas fa-universal-access"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-2 space-font">Accessible</h4>
-                            <p class="text-slate-400">
-                                Ensuring websites are usable by everyone, including people with disabilities.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    My <span class="text-indigo-500">Projects</span>
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
-                    Here's a selection of my recent frontend projects. Each one demonstrates my skills in creating
-                    beautiful, functional, and responsive user interfaces.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="card project-card">
-                    <div class="h-56 bg-slate-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full text-indigo-500/10"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
-                            <path d="M0,0 L100,0 L50,100 Z" fill="currentColor" opacity="0.5"></path>
-                            <path d="M0,0 L100,100 L0,100 Z" fill="currentColor" opacity="0.3"></path>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="image/yummy.png" alt="dashboard" class="w-full h-full object-cover">
-                            
-                        </div>
-                        <div class="project-overlay p-6">
-                            <h3 class="text-xl font-bold space-font text-white mb-2">Yummy Resturant</h3>
-                            <p class="text-slate-300 mb-4 text-center">A clean and responsive restaurant website built with modern web technologies.</p>
-                            <div class="flex space-x-3">
-                                <a href="https://shehap152.github.io/frontend-project/" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Shehap152/frontend-project" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fab fa-github mr-1"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">Yummy Resturant</h3>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">React</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Redux</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Tailwind CSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="card project-card w-full">
-                    <div class="h-56 bg-slate-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full text-indigo-500/10"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
-                            <circle cx="50" cy="50" r="30" fill="currentColor" opacity="0.5"></circle>
-                            <circle cx="70" cy="30" r="20" fill="currentColor" opacity="0.3"></circle>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="image/dashboard.png" alt="dashboard" class="w-full h-full object-cover">
-                        </div>
-                        <div class="project-overlay p-6">
-                            <h3 class="text-xl font-bold space-font text-white mb-2">Analytics Dashboard</h3>
-                            <p class="text-slate-300 mb-4 text-center">An interactive dashboard with data visualization,
-                                filtering options, and customizable widgets.</p>
-                            <div class="flex space-x-3">
-                                <a href="https://dashboardsh.netlify.app/" target="_blank" rel="noopener noreferrer"
-                                    title="Visit my GitHub profile"
-                                    class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Shehap152/HTML_And_CSS_project_4" target="_blank"
-                                    rel="noopener noreferrer" title="Visit my GitHub profile"
-                                    class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fab fa-github mr-1"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">Analytics Dashboard</h3>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">HTML5</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">CSS3</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">SCSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="card project-card">
-                    <div class="h-56 bg-slate-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full text-indigo-500/10"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
-                            <path d="M0,50 Q25,25 50,50 T100,50" stroke="currentColor" stroke-width="5" fill="none"
-                                opacity="0.5"></path>
-                            <path d="M0,70 Q25,45 50,70 T100,70" stroke="currentColor" stroke-width="5" fill="none"
-                                opacity="0.3"></path>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="image/GeniusStore.png" alt="dashboard" class="w-full h-full object-cover">
-
-                        </div>
-                        <div class="project-overlay p-6">
-                            <h3 class="text-xl font-bold space-font text-white mb-2">Genius Store</h3>
-                            <p class="text-slate-300 mb-4 text-center">Your one-stop shop for fast and secure game top-ups. Get instant delivery for PUBG, Free Fire, and more. Pay with ease and get back to the game.</p>
-                            <div class="flex space-x-3">
-                                <a href="https://genius-store-three.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Shehap152/GeniusStore" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fab fa-github mr-1"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">Genius Store</h3>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">React</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Styled
-                                Components</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Framer Motion</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Firebase</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="card project-card">
-                    <div class="h-56 bg-slate-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full text-indigo-500/10"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
-                            <rect x="20" y="20" width="60" height="60" rx="5" fill="currentColor" opacity="0.5"></rect>
-                            <rect x="30" y="30" width="40" height="40" rx="5" fill="currentColor" opacity="0.3"></rect>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="image/critavia.png" alt="dashboard" class="w-full h-full object-cover">
-
-                        </div>
-                        <div class="project-overlay p-6">
-                            <h3 class="text-xl font-bold space-font text-white mb-2">CRETIVE</h3>
-                            <p class="text-slate-300 mb-4 text-center">A creative agency website that showcases their services and projects.</p>
-                            <div class="flex space-x-3">
-                                <a href="https://the-first-project-competition.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Shehap152/The_first_project_competition" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fab fa-github mr-1"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">CRETIVE</h3>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">React</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Storybook</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">CSS Modules</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="card project-card">
-                    <div class="h-56 bg-slate-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full text-indigo-500/10"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
-                            <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="currentColor" opacity="0.5"></path>
-                            <path d="M35,35 L65,35 L65,65 L35,65 Z" fill="currentColor" opacity="0.3"></path>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="image/VisionaryCreatives.png" alt="dashboard" class="w-full h-full object-cover">
-
-                        </div>
-                        <div class="project-overlay p-6">
-                            <h3 class="text-xl font-bold space-font text-white mb-2">Visionary Creatives</h3>
-                            <p class="text-slate-300 mb-4 text-center">A modern and bold creative agency that specializes in branding, UI/UX, and innovative digital design. We craft visual stories that connect brands with people.</p>
-                            <div class="flex space-x-3">
-                                <a href="https://shehap152.github.io/HTML_And_CSS_project_3/" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Shehap152/HTML_And_CSS_project_3" target="_blank" rel="noopener noreferrer"  class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fab fa-github mr-1"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">Visionary Creatives</h3>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Angular</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">RxJS</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">SCSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="card project-card">
-                    <div class="h-56 bg-slate-800 relative overflow-hidden">
-                        <svg class="absolute inset-0 w-full h-full text-indigo-500/10"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
-                            <path d="M50,20 L80,50 L50,80 L20,50 Z" fill="currentColor" opacity="0.5"></path>
-                            <circle cx="50" cy="50" r="15" fill="currentColor" opacity="0.3"></circle>
-                        </svg>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <img src="image/FamilyBakery.png" alt="dashboard" class="w-full h-full object-cover">
-                        </div>
-                        <div class="project-overlay p-6">
-                            <h3 class="text-xl font-bold space-font text-white mb-2">Family Bakery</h3>
-                            <p class="text-slate-300 mb-4 text-center">We're the biggest, best equipped and most advanced Bakery in the greater Los Angeles area.</p>
-                            <div class="flex space-x-3">
-                                <a href="https://shehap152.github.io/Web_Design_NTI_Task_1/" target="_blank" rel="noopener noreferrer" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fas fa-external-link-alt mr-1"></i> Live Demo
-                                </a>
-                                <a href="https://github.com/Shehap152/Web_Design_NTI_Task_1/" class="text-indigo-500 hover:text-indigo-400 transition-colors">
-                                    <i class="fab fa-github mr-1"></i> Source Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">Family Bakery</h3>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Vue.js</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Vuex</span>
-                            <span class="px-2 py-1 bg-slate-800 text-xs rounded-md text-slate-300">Tailwind CSS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="#" class="btn-primary px-8 py-3 rounded-md font-medium inline-flex items-center">
-                    View All Projects
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Case Study Modal (hidden by default) -->
-    <div id="case-study-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
-        <div class="bg-slate-900 text-white p-8 rounded-xl w-full max-w-2xl relative">
-            <button onclick="document.getElementById('case-study-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-indigo-500" title="Close Case Study"><i class="fas fa-times"></i></button>
-            <h3 class="text-2xl font-bold mb-4">Project Case Study</h3>
-            <p class="mb-2 text-indigo-400">Before/After Comparison</p>
-            <div class="flex gap-4 mb-4">
-                <img src="https://via.placeholder.com/150x100?text=Before" alt="Before" class="rounded-lg w-1/2">
-                <img src="https://via.placeholder.com/150x100?text=After" alt="After" class="rounded-lg w-1/2">
-            </div>
-            <p class="mb-2">Challenges: <span class="text-slate-300">Describe the main challenges here.</span></p>
-            <p class="mb-2">Solutions: <span class="text-slate-300">Describe the solutions here.</span></p>
-            <p class="mb-2">Results: <span class="text-slate-300">Share metrics or outcomes here.</span></p>
-        </div>
+<body>
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress__bar" id="scroll-progress-bar"></span>
     </div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">Services</h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">What I can do for you. Choose a plan that fits your needs.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Web Development Card -->
-                <div class="card p-8 text-center bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div class="flex justify-center mb-4">
-                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-indigo-600/10">
-                    <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
-                    </span>
-                </div>
-                <h3 class="font-bold text-xl mb-2 text-white">Web Development</h3>
-                <p class="text-slate-400 mb-4 text-base">Modern, responsive websites and web apps.</p>
-                <div class="text-2xl font-bold text-indigo-500 mb-4">$500+</div>
-                <a href="#contact" class="w-full inline-block py-2 rounded-md font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">Start Project</a>
-                </div>
-                <!-- UI/UX Design Card -->
-                <div class="card p-8 text-center bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div class="flex justify-center mb-4">
-                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-indigo-600/10">
-                    <i class="fas fa-paint-brush text-2xl text-indigo-600"></i>
-                    </span>
-                </div>
-                <h3 class="font-bold text-xl mb-2 text-white">UI/UX Design</h3>
-                <p class="text-slate-400 mb-4 text-base">Beautiful, user-friendly interface design.</p>
-                <div class="text-2xl font-bold text-indigo-500 mb-4">$300+</div>
-                <a href="#contact" class="w-full inline-block py-2 rounded-md font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">Start Project</a>
-                </div>
-                <!-- SEO Optimization Card -->
-                <div class="card p-8 text-center bg-slate-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div class="flex justify-center mb-4">
-                    <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-indigo-600/10">
-                    <i class="fas fa-search text-2xl text-indigo-600"></i>
-                    </span>
-                </div>
-                <h3 class="font-bold text-xl mb-2 text-white">SEO Optimization</h3>
-                <p class="text-slate-400 mb-4 text-base">Improve your site's visibility and ranking.</p>
-                <div class="text-2xl font-bold text-indigo-500 mb-4">$200+</div>
-                <a href="#contact" class="w-full inline-block py-2 rounded-md font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">Start Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
 
-    <!-- Blog/Articles Section -->
-    <section id="blog" class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    Blog & Articles
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
-                    Sharing tutorials, case studies, and insights about frontend development.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="card p-6">
-                    <header class="mb-4">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">How to Build a Responsive Navbar</h3>
-                        <time class="text-xs text-slate-400">May 2024</time>
-                    </header>
-                    <p class="text-slate-300 mb-4">A step-by-step guide to creating a modern, responsive navigation bar using HTML, CSS, and JavaScript.</p>
-                    <a href="#" class="text-indigo-500 hover:underline">Read More</a>
-                </article>
-                <article class="card p-6">
-                    <header class="mb-4">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">CSS Grid vs Flexbox: When to Use Which?</h3>
-                        <time class="text-xs text-slate-400">April 2024</time>
-                    </header>
-                    <p class="text-slate-300 mb-4">An in-depth comparison of CSS Grid and Flexbox, with practical examples and use cases.</p>
-                    <a href="#" class="text-indigo-500 hover:underline">Read More</a>
-                </article>
-                <article class="card p-6">
-                    <header class="mb-4">
-                        <h3 class="text-xl font-bold space-font text-white mb-2">Improving Web Accessibility</h3>
-                        <time class="text-xs text-slate-400">March 2024</time>
-                    </header>
-                    <p class="text-slate-300 mb-4">Tips and best practices for making your websites accessible to everyone.</p>
-                    <a href="#" class="text-indigo-500 hover:underline">Read More</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    Testimonials
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
-                    What clients and colleagues say about working with me.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6 flex flex-col items-center text-center">
-                    <img src="image/salah.png" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
-                    <blockquote class="text-slate-300 mb-4">"Shehap is a talented developer who delivers high-quality work on time. Highly recommended!"</blockquote>
-                    <div class="flex items-center mb-2">
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star-half-alt"></i></span>
-                    </div>
-                    <div class="text-indigo-500 font-bold">Ahmed Salah</div>
-                    <div class="text-slate-400 text-sm">CEO, ExampleCorp</div>
-                </div>
-                <div class="card p-6 flex flex-col items-center text-center">
-                    <img src="image/sara.png" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
-                    <blockquote class="text-slate-300 mb-4">"Great communicator and problem solver. The project exceeded our expectations!"</blockquote>
-                    <div class="flex items-center mb-2">
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                    </div>
-                    <div class="text-indigo-500 font-bold">Sara Younis</div>
-                    <div class="text-slate-400 text-sm">Product Manager, Webify</div>
-                </div>
-                <div class="card p-6 flex flex-col items-center text-center">
-                    <img src="image/gehad.png" alt="Client Photo" class="w-16 h-16 rounded-full mb-4">
-                    <blockquote class="text-slate-300 mb-4">"Shehap's attention to detail and technical expertise made a huge difference in our project's success."</blockquote>
-                    <div class="flex items-center mb-2">
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                        <span class="text-yellow-400"><i class="fas fa-star"></i></span>
-                    </div>
-                    <div class="text-indigo-500 font-bold">Mohamed Gehad</div>
-                    <div class="text-slate-400 text-sm">Lead Designer, Creatix</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Resume/CV Section -->
-    <section id="resume" class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    Resume & Experience
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <a href="CV.html"  download class="btn-outline px-6 py-2 rounded-md font-medium mt-6 inline-block">
-                    <i class="fas fa-download mr-2"></i>Download CV
+    <header class="site-header" id="top">
+        <div class="container">
+            <nav class="nav">
+                <a class="brand" href="#hero" aria-label="Shihab home">
+                    <span class="brand__mark">S</span>
+                    <span class="brand__text">
+                        <strong>Shihab</strong>
+                        <span>Portfolio</span>
+                    </span>
                 </a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Timeline -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 text-indigo-500">Work Experience</h3>
-                    <ul class="border-l-2 border-indigo-500 pl-6">
-                        <li class="mb-8">
-                            <div class="text-slate-300 font-semibold">Frontend Developer</div>
-                            <div class="text-slate-400 text-sm mb-1">Tech Solutions Inc. | 2023 - Present</div>
-                            <div class="text-slate-500 text-xs">Developed modern web apps using React and Tailwind CSS.</div>
-                        </li>
-                        <li class="mb-8">
-                            <div class="text-slate-300 font-semibold">Web Designer</div>
-                            <div class="text-slate-400 text-sm mb-1">Creative Studio | 2022 - 2023</div>
-                            <div class="text-slate-500 text-xs">Designed and built responsive websites for clients.</div>
-                        </li>
-                        <li>
-                            <div class="text-slate-300 font-semibold">Intern</div>
-                            <div class="text-slate-400 text-sm mb-1">Startup Hub | 2021 - 2022</div>
-                            <div class="text-slate-500 text-xs">Assisted in frontend development and UI/UX design.</div>
-                        </li>
-                    </ul>
+
+                <div class="nav__menu" id="nav-menu">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#services">Services</a>
+                    <a href="#journey">Journey</a>
+                    <a href="#comments">Comments</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <!-- Skills Visualization -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 text-indigo-500">Skills</h3>
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-slate-300">JavaScript</span>
-                            <span class="text-indigo-500">90%</span>
-                        </div>
-                        <div class="progress-bar rounded-full">
-                            <div class="progress rounded-full" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-slate-300">React</span>
-                            <span class="text-indigo-500">85%</span>
-                        </div>
-                        <div class="progress-bar rounded-full">
-                            <div class="progress rounded-full" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="mb-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-slate-300">CSS / Tailwind</span>
-                            <span class="text-indigo-500">95%</span>
-                        </div>
-                        <div class="progress-bar rounded-full">
-                            <div class="progress rounded-full" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="text-slate-300">UI/UX Design</span>
-                            <span class="text-indigo-500">80%</span>
-                        </div>
-                        <div class="progress-bar rounded-full">
-                            <div class="progress rounded-full" style="width: 80%"></div>
-                        </div>
-                    </div>
+
+                <div class="nav__actions">
+                    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+                        <span class="theme-toggle__icon theme-toggle__icon--sun"></span>
+                        <span class="theme-toggle__icon theme-toggle__icon--moon"></span>
+                    </button>
+                    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation">
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
-            </div>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    My <span class="text-indigo-500">Skills</span>
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
-                    I've mastered a variety of frontend technologies and tools to create exceptional user experiences.
-                </p>
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero__backdrop" aria-hidden="true">
+                <span class="hero__orb hero__orb--one"></span>
+                <span class="hero__orb hero__orb--two"></span>
+                <span class="hero__grid"></span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="card p-8">
-                    <h3 class="text-2xl font-bold mb-6 space-font text-indigo-500">Frontend Technologies</h3>
+            <div class="container hero__layout">
+                <div class="hero__content reveal">
+                    <p class="eyebrow">Electronics Engineer in progress • Frontend-first builder</p>
+                    <h1>
+                        Designing interfaces that feel
+                        <span class="headline-accent">intentional, vivid, and high-performing.</span>
+                    </h1>
+                    <p class="hero__lede">
+                        I’m Shihab, an Electronics Engineering student and passionate Frontend & Full Stack Developer.
+                        I turn product ideas into polished web experiences with strong UX thinking, scalable code, and a sharp eye for detail.
+                    </p>
 
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-slate-300">HTML5 & CSS3</span>
-                                <span class="text-indigo-500">95%</span>
-                            </div>
-                            <div class="progress-bar rounded-full">
-                                <div class="progress rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-slate-300">JavaScript / ES6+</span>
-                                <span class="text-indigo-500">90%</span>
-                            </div>
-                            <div class="progress-bar rounded-full">
-                                <div class="progress rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-slate-300">CSS Frameworks (Tailwind, Bootstrap)</span>
-                                <span class="text-indigo-500">90%</span>
-                            </div>
-                            <div class="progress-bar rounded-full">
-                                <div class="progress rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-slate-300">CSS Preprocessors (SASS)</span>
-                                <span class="text-indigo-500">85%</span>
-                            </div>
-                            <div class="progress-bar rounded-full">
-                                <div class="progress rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-slate-300">Responsive Web Design</span>
-                                <span class="text-indigo-500">95%</span>
-                            </div>
-                            <div class="progress-bar rounded-full">
-                                <div class="progress rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
+                    <div class="hero__typing glass-card">
+                        <span class="hero__typing-label">Currently focused on</span>
+                        <strong id="typing-text" aria-live="polite"></strong>
                     </div>
+
+                    <div class="hero__actions">
+                        <a class="button button--primary magnetic" href="#projects">Explore Projects</a>
+                        <a class="button button--ghost magnetic" href="#contact">Let’s Build Something</a>
+                    </div>
+
+                    <dl class="hero__stats">
+                        <div>
+                            <dt>Core stack</dt>
+                            <dd>HTML, CSS, JS, React, Node</dd>
+                        </div>
+                        <div>
+                            <dt>Focus</dt>
+                            <dd>UI engineering, responsive systems, REST integrations</dd>
+                        </div>
+                        <div>
+                            <dt>Mindset</dt>
+                            <dd>Clean execution with product-level thinking</dd>
+                        </div>
+                    </dl>
                 </div>
 
-                <div>
-                    <div class="card p-8 mb-8">
-                        <h3 class="text-2xl font-bold mb-6 space-font text-indigo-500">Tools & Frameworks</h3>
+                <div class="hero__visual reveal reveal--delay">
+                    <div class="hero-card glass-card">
+                        <div class="hero-card__topline">
+                            <span id="hero-topline-name">Shihab</span>
+                            <span id="hero-topline-role">Frontend + Full Stack</span>
+                        </div>
 
-                        <div class="grid grid-cols-3 sm:grid-cols-4 gap-6">
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-js text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">JavaScript</span>
+                        <div class="hero-card__profile">
+                            <div class="hero-card__photo-wrap">
+                                <img id="hero-photo" src="images/me.png" alt="Portrait of Shihab">
                             </div>
 
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-html5 text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">HTML5</span>
+                            <div class="hero-card__panel">
+                                <p id="hero-panel-text">Building premium interfaces with engineering discipline and design sensitivity.</p>
+                                <ul id="hero-panel-list">
+                                    <li>Responsive design systems</li>
+                                    <li>Interactive product experiences</li>
+                                    <li>Modern web app implementation</li>
+                                </ul>
                             </div>
+                        </div>
 
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-css3-alt text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">CSS3</span>
+                        <div class="hero-card__meta">
+                            <div class="meta-chip">
+                                <span class="meta-chip__label">Based in</span>
+                                <strong id="hero-based-in">Zagazig, Egypt</strong>
                             </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-sass text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Sass</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-git-alt text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Git</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-figma text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Figma</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fas fa-cube text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Webpack</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-github text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">GitHub</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-react text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">React</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-vuejs text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Vue.js</span>
-                            </div>
-
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-bootstrap text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Bootstrap</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fab fa-node-js text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Node.js</span>
-                            </div>
-
-                            <div class="tech-icon flex flex-col items-center p-4 bg-slate-800 rounded-lg">
-                                <i class="fas fa-wind text-3xl text-indigo-500 mb-2"></i>
-                                <span class="text-slate-300 text-sm">Tailwind CSS</span>
+                            <div class="meta-chip">
+                                <span class="meta-chip__label">Open to</span>
+                                <strong id="hero-open-to">Freelance & collaboration</strong>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card p-8">
-                        <h3 class="text-2xl font-bold mb-6 space-font text-indigo-500">Additional Skills</h3>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="flex items-center p-4 bg-slate-800 rounded-lg">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-mobile-alt text-indigo-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white">Responsive Design</h4>
-                                    <p class="text-sm text-slate-400">Mobile-first approach</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 rounded-lg">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-universal-access text-indigo-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white">Web Accessibility</h4>
-                                    <p class="text-sm text-slate-400">WCAG compliance</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 rounded-lg">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-tachometer-alt text-indigo-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white">Performance Optimization</h4>
-                                    <p class="text-sm text-slate-400">Fast loading times</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 rounded-lg">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-search text-indigo-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white">SEO Fundamentals</h4>
-                                    <p class="text-sm text-slate-400">Search engine friendly</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 rounded-lg">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-paint-brush text-indigo-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white">UI/UX Principles</h4>
-                                    <p class="text-sm text-slate-400">User-centered design</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center p-4 bg-slate-800 rounded-lg">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-code-branch text-indigo-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white">Version Control</h4>
-                                    <p class="text-sm text-slate-400">Git workflow mastery</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="floating-badge floating-badge--alpha">
+                        <span id="hero-badge-alpha-label">Frontend craft</span>
+                        <strong id="hero-badge-alpha-title">Premium UI</strong>
+                    </div>
+                    <div class="floating-badge floating-badge--beta">
+                        <span id="hero-badge-beta-label">Engineering</span>
+                        <strong id="hero-badge-beta-title">Structured code</strong>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 space-font">
-                    Get In <span class="text-indigo-500">Touch</span>
-                </h2>
-                <div class="w-24 h-1 bg-indigo-500 mx-auto"></div>
-                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
-                    Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
-                </p>
-            </div>
+        <section class="section about" id="about">
+            <div class="container section-shell">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">About me</p>
+                    <h2>From engineering logic to memorable digital experiences.</h2>
+                </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Contact Info -->
-                <div class="card p-8">
-                    <h3 class="text-2xl font-bold mb-6 text-indigo-500">Contact Information</h3>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-indigo-500"></i>
-                            </div>
-                            <div>
-                                <p class="text-slate-400 text-sm mb-1">Email</p>
-                                <p class="text-white">sh.s.ghazal2003@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-indigo-500"></i>
-                            </div>
-                            <div>
-                                <p class="text-slate-400 text-sm mb-1">Phone</p>
-                                <p class="text-white">+20 1010920472</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-indigo-500"></i>
-                            </div>
-                            <div>
-                                <p class="text-slate-400 text-sm mb-1">Location</p>
-                                <p class="text-white">Sharqia, Zagazig</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8">
-                        <h4 class="text-xl font-bold mb-4 text-white">Connect With Me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer"
-                                title="Visit my GitHub profile"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                                <i class="fab fa-github text-slate-400"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank"
-                                rel="noopener noreferrer" title="Visit my LinkedIn profile"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                                <i class="fab fa-linkedin text-slate-400"></i>
-                            </a>
-                            <a href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer"
-                                title="Visit my Twitter profile"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                                <i class="fab fa-twitter text-slate-400"></i>
-                            </a>
-                            <a href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer"
-                                title="Visit my Facebook profile"
-                                class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center">
-                                <i class="fab fa-facebook text-slate-400"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="mt-8">
-                        <h4 class="text-xl font-bold mb-4 text-white">Subscribe to My Newsletter</h4>
-                        <p class="text-slate-400 mb-4">Get the latest updates on my projects, articles, and frontend tips. No spam, just value!</p>
-                        <form class="flex flex-col sm:flex-row gap-4">
-                            <input type="email" placeholder="Your Email" class="contact-input px-4 py-3 rounded-lg w-full" required>
-                            <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-medium whitespace-nowrap">Subscribe</button>
-                        </form>
-                    </div>
-
-                    <div class="mt-8 p-6 bg-slate-800 rounded-lg">
-                        <h4 class="text-lg font-bold mb-4 text-white">Availability</h4>
-                        <p class="text-slate-300 mb-2">
-                            I'm currently available for freelance work and open to discussing new opportunities.
+                <div class="about__layout">
+                    <article class="story-card glass-card reveal">
+                        <p>
+                            My path into development started with curiosity: how structure, motion, and interaction can
+                            shape the way people feel when they use a product. Studying Electronics Engineering sharpened
+                            my systems thinking, while frontend development gave me the canvas to make technology feel
+                            intuitive and alive.
                         </p>
-                        <div class="flex items-center">
-                            <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-                            <span class="text-green-400 text-sm">Available for new projects</span>
+                        <p>
+                            Today, I enjoy building interfaces that are visually refined, technically reliable, and
+                            genuinely useful. Whether I’m crafting a landing page, wiring a REST API, or polishing
+                            responsive behavior, I care about the small details that make a product feel premium.
+                        </p>
+                    </article>
+
+                    <aside class="about__highlights reveal reveal--delay">
+                        <div class="highlight-card">
+                            <span>01</span>
+                            <h3>Design-aware development</h3>
+                            <p>I bridge UI aesthetics with implementation quality, so the final product feels cohesive.</p>
                         </div>
+                        <div class="highlight-card">
+                            <span>02</span>
+                            <h3>Scalable frontend thinking</h3>
+                            <p>I prefer clean structure, reusable patterns, and interactions that stay maintainable.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <span>03</span>
+                            <h3>Growth-oriented execution</h3>
+                            <p>I’m always refining my craft across frontend, full stack workflows, and product UX.</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section skills" id="skills">
+            <div class="container section-shell">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Capabilities</p>
+                    <h2>A toolkit built for polished interfaces and practical full stack delivery.</h2>
+                </div>
+
+                <div class="skills__layout">
+                    <div class="skills__cluster reveal">
+                        <div class="skill-cloud glass-card" id="skill-cloud">
+                            <button class="skill-pill magnetic is-active" type="button">HTML5</button>
+                            <button class="skill-pill magnetic" type="button">CSS3</button>
+                            <button class="skill-pill magnetic" type="button">JavaScript</button>
+                            <button class="skill-pill magnetic" type="button">Bootstrap</button>
+                            <button class="skill-pill magnetic" type="button">React.js</button>
+                            <button class="skill-pill magnetic" type="button">Next.js</button>
+                            <button class="skill-pill magnetic" type="button">Node.js</button>
+                            <button class="skill-pill magnetic" type="button">Firebase</button>
+                            <button class="skill-pill magnetic" type="button">REST APIs</button>
+                            <button class="skill-pill magnetic" type="button">Git & GitHub</button>
+                            <button class="skill-pill magnetic" type="button">Responsive Design</button>
+                        </div>
+                    </div>
+
+                    <div class="skills__bars reveal reveal--delay" id="skills-bars">
+                        <article class="meter-card glass-card">
+                            <div class="meter-card__header">
+                                <h3>Frontend foundations</h3>
+                                <span>95%</span>
+                            </div>
+                            <p>Semantic markup, expressive layouts, animation, accessibility, and responsive execution.</p>
+                            <div class="meter" data-progress="95">
+                                <span></span>
+                            </div>
+                        </article>
+
+                        <article class="meter-card glass-card">
+                            <div class="meter-card__header">
+                                <h3>JavaScript interactions</h3>
+                                <span>90%</span>
+                            </div>
+                            <p>Vanilla JS behavior, UI state, form handling, filtering, and smooth interface logic.</p>
+                            <div class="meter" data-progress="90">
+                                <span></span>
+                            </div>
+                        </article>
+
+                        <article class="meter-card glass-card">
+                            <div class="meter-card__header">
+                                <h3>React ecosystem</h3>
+                                <span>88%</span>
+                            </div>
+                            <p>Component thinking, modern app structure, and product-focused interface delivery.</p>
+                            <div class="meter" data-progress="88">
+                                <span></span>
+                            </div>
+                        </article>
+
+                        <article class="meter-card glass-card">
+                            <div class="meter-card__header">
+                                <h3>Full stack integration</h3>
+                                <span>84%</span>
+                            </div>
+                            <p>Node.js, Firebase, and REST APIs to connect frontend experiences with real functionality.</p>
+                            <div class="meter" data-progress="84">
+                                <span></span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section projects" id="projects">
+            <div class="container section-shell">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Selected work</p>
+                    <h2>Projects that show range, visual craft, and implementation depth.</h2>
+                </div>
+
+                <div class="projects__toolbar reveal">
+                    <div class="filter-group" role="tablist" aria-label="Filter projects">
+                        <button class="filter-button is-active" type="button" data-filter="all">All</button>
+                        <button class="filter-button" type="button" data-filter="frontend">Frontend</button>
+                        <button class="filter-button" type="button" data-filter="ui">UI Systems</button>
+                        <button class="filter-button" type="button" data-filter="fullstack">Full Stack</button>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="card p-8">
-                    <h3 class="text-2xl font-bold mb-6 text-indigo-500">Send Me a Message</h3>
+                <div class="projects__grid" id="projects-grid">
+                    <article class="project-card glass-card reveal" data-category="frontend ui">
+                        <div class="project-card__media">
+                            <img src="images/yummy.png" alt="Yummy restaurant project preview">
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__meta">
+                                <span>Frontend</span>
+                                <span>Responsive UI</span>
+                            </div>
+                            <h3>Yummy Restaurant</h3>
+                            <p>A restaurant experience with polished visual storytelling, responsive layouts, and a stronger product presentation.</p>
+                            <div class="project-card__tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="https://shehap152.github.io/frontend-project/" target="_blank" rel="noopener noreferrer">Live</a>
+                                <a href="https://github.com/Shehap152/frontend-project" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
 
-                    <form id="contact-form" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-slate-400 mb-2">Name</label>
-                            <input type="text" id="name" name="user_name"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Name">
+                    <article class="project-card glass-card reveal reveal--delay" data-category="ui frontend">
+                        <div class="project-card__media">
+                            <img src="images/dashboard.png" alt="Analytics dashboard project preview">
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__meta">
+                                <span>UI Systems</span>
+                                <span>Dashboard</span>
+                            </div>
+                            <h3>Analytics Dashboard</h3>
+                            <p>A clean data-driven dashboard focused on structure, readability, and modern admin interface design patterns.</p>
+                            <div class="project-card__tags">
+                                <span>HTML5</span>
+                                <span>SCSS</span>
+                                <span>Charts UI</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="https://dashboardsh.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                                <a href="https://github.com/Shehap152/HTML_And_CSS_project_4" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-card reveal" data-category="fullstack frontend">
+                        <div class="project-card__media">
+                            <img src="images/GeniusStore.png" alt="Genius Store project preview">
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__meta">
+                                <span>Full Stack</span>
+                                <span>E-commerce</span>
+                            </div>
+                            <h3>Genius Store</h3>
+                            <p>An e-commerce concept that highlights product-focused layouts, usability, and scalable interface structure.</p>
+                            <div class="project-card__tags">
+                                <span>React</span>
+                                <span>REST API</span>
+                                <span>Commerce UI</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card glass-card reveal reveal--delay" data-category="frontend ui">
+                        <div class="project-card__media">
+                            <img src="images/FamilyBakery.png" alt="Family Bakery project preview">
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__meta">
+                                <span>Frontend</span>
+                                <span>Brand Experience</span>
+                            </div>
+                            <h3>Family Bakery</h3>
+                            <p>A visually warm brand website focused on storytelling, hierarchy, and inviting conversion-friendly layouts.</p>
+                            <div class="project-card__tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Brand UI</span>
+                            </div>
+                            <div class="project-card__links">
+                                <a href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section services" id="services">
+            <div class="container section-shell">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">What I do</p>
+                    <h2>Services designed for founders, teams, and products that need a sharper digital presence.</h2>
+                </div>
+
+                <div class="services__grid">
+                    <article class="service-card glass-card reveal">
+                        <span class="service-card__index">01</span>
+                        <h3>Frontend Development</h3>
+                        <p>High-quality responsive interfaces with strong visual consistency, interaction polish, and maintainable code.</p>
+                    </article>
+                    <article class="service-card glass-card reveal reveal--delay">
+                        <span class="service-card__index">02</span>
+                        <h3>Landing Page Design</h3>
+                        <p>Conversion-aware pages with premium presentation, better section flow, and stronger storytelling.</p>
+                    </article>
+                    <article class="service-card glass-card reveal">
+                        <span class="service-card__index">03</span>
+                        <h3>Web App UI Implementation</h3>
+                        <p>Modern dashboards, product interfaces, and component-driven screens translated cleanly from concept to code.</p>
+                    </article>
+                    <article class="service-card glass-card reveal reveal--delay">
+                        <span class="service-card__index">04</span>
+                        <h3>API & Firebase Integration</h3>
+                        <p>Practical full stack workflows that connect interfaces to live data and user-facing functionality.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section journey" id="journey">
+            <div class="container section-shell">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Learning journey</p>
+                    <h2>How I’ve been growing as an engineer and product-minded frontend developer.</h2>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline__item glass-card reveal">
+                        <span class="timeline__year">Foundation</span>
+                        <h3>Started with core web technologies</h3>
+                        <p>I built my fundamentals in HTML, CSS, and JavaScript, focusing on layout systems, responsiveness, and clean UI structure.</p>
+                    </article>
+                    <article class="timeline__item glass-card reveal reveal--delay">
+                        <span class="timeline__year">Expansion</span>
+                        <h3>Moved into modern frontend workflows</h3>
+                        <p>I deepened my knowledge with Bootstrap, React.js, and Next.js to build richer interfaces and more scalable applications.</p>
+                    </article>
+                    <article class="timeline__item glass-card reveal">
+                        <span class="timeline__year">Integration</span>
+                        <h3>Connected frontend with backend logic</h3>
+                        <p>Using Node.js, Firebase, and REST APIs, I started building products that do more than look good: they work end-to-end.</p>
+                    </article>
+                    <article class="timeline__item glass-card reveal reveal--delay">
+                        <span class="timeline__year">Now</span>
+                        <h3>Sharpening premium UI craft</h3>
+                        <p>I’m focused on leveling up design taste, interaction quality, and code architecture so my work feels distinctive and production-ready.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section comments" id="comments">
+            <div class="container section-shell">
+                <div class="section-heading reveal">
+                    <p class="eyebrow">Comments wall</p>
+                    <h2>Visitors can leave a note, and you control what gets published.</h2>
+                    <p>
+                        New comments are submitted for review first. Only approved comments appear publicly in the showcase below.
+                    </p>
+                </div>
+
+                <div class="comments__layout">
+                    <div class="comments__public glass-card reveal">
+                        <div class="comments__header">
+                            <div>
+                                <h3>Approved comments</h3>
+                                <p>Thoughts, feedback, and quick notes that made it through moderation.</p>
+                            </div>
+                            <span class="comments__counter" id="approved-comments-count">0 approved</span>
                         </div>
 
-                        <div>
-                            <label for="email" class="block text-slate-400 mb-2">Email</label>
-                            <input type="email" id="email" name="user_email"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Email">
+                        <div class="comments__list" id="approved-comments-list"></div>
+                        <p class="comments__empty" id="approved-comments-empty">No approved comments yet. Be the first to leave one.</p>
+                    </div>
+
+                    <div class="comments__sidebar">
+                        <form class="comment-form glass-card reveal reveal--delay" id="comment-form" novalidate>
+                            <div class="comments__header">
+                                <div>
+                                    <h3>Leave a comment</h3>
+                                    <p>Your message will stay pending until I review and approve it from the admin dashboard.</p>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="comment-name">Name</label>
+                                <input id="comment-name" name="commentName" type="text" placeholder="Your name">
+                                <small class="field__error"></small>
+                            </div>
+
+                            <div class="field">
+                                <label for="comment-role">Role or title</label>
+                                <input id="comment-role" name="commentRole" type="text" placeholder="Frontend developer, client, friend...">
+                                <small class="field__error"></small>
+                            </div>
+
+                            <div class="field">
+                                <label for="comment-message">Comment</label>
+                                <textarea id="comment-message" name="commentMessage" rows="5" placeholder="Write a useful comment, testimonial, or quick thought."></textarea>
+                                <small class="field__error"></small>
+                            </div>
+
+                            <button class="button button--primary magnetic" type="submit">Submit for review</button>
+                            <p class="form-status" id="comment-status" aria-live="polite"></p>
+                        </form>
+
+                        <section class="moderation-panel glass-card reveal" id="moderation-panel">
+                            <div class="comments__header">
+                                <div>
+                                    <h3>Moderation panel</h3>
+                                    <p>Use owner mode here for quick moderation, or open the dedicated admin dashboard for a cleaner workflow with Firebase Authentication.</p>
+                                </div>
+                            </div>
+
+                            <a class="button button--ghost" href="admin.html">Open admin dashboard</a>
+
+                            <div class="moderation-panel__auth" id="moderation-auth">
+                                <div class="field">
+                                    <label for="moderation-passcode">Owner passcode</label>
+                                    <input id="moderation-passcode" type="password" placeholder="Enter passcode">
+                                    <small class="field__error" id="moderation-auth-error"></small>
+                                </div>
+                                <button class="button button--ghost magnetic" id="moderation-unlock" type="button">Unlock moderation</button>
+                            </div>
+
+                            <div class="moderation-panel__content" id="moderation-content" hidden>
+                                <div class="moderation-panel__topbar">
+                                    <span class="comments__counter" id="pending-comments-count">0 pending</span>
+                                    <button class="button button--ghost magnetic moderation-panel__lock" id="moderation-lock" type="button">Lock</button>
+                                </div>
+                                <div class="comments__list comments__list--moderation" id="pending-comments-list"></div>
+                                <p class="comments__empty" id="pending-comments-empty">No pending comments right now.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact" id="contact">
+            <div class="container section-shell">
+                <div class="contact__panel glass-card">
+                    <div class="contact__intro reveal">
+                        <p class="eyebrow">Contact</p>
+                        <h2>Let’s create something that feels premium from the first scroll.</h2>
+                        <p>
+                            If you need a refined portfolio, landing page, dashboard, or frontend experience with
+                            thoughtful implementation, I’d love to hear about it.
+                        </p>
+
+                        <div class="contact__facts">
+                            <a href="mailto:sh.s.ghazal2003@gmail.com">sh.s.ghazal2003@gmail.com</a>
+                            <a href="tel:+201010920472">+20 101 092 0472</a>
+                            <span>Zagazig, Sharqia, Egypt</span>
                         </div>
 
-                        <div>
-                            <label for="subject" class="block text-slate-400 mb-2">Subject</label>
-                            <input type="text" id="subject" name="subject"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Subject">
+                        <div class="contact__socials">
+                            <a class="magnetic" href="https://github.com/Shehap152/Shehap152" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="magnetic" href="https://www.linkedin.com/in/shehap-0-ghazal/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a class="magnetic" href="https://x.com/sh_ghazal2003" target="_blank" rel="noopener noreferrer">X</a>
+                            <a class="magnetic" href="https://www.facebook.com/shehap.ghazal" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        </div>
+                    </div>
+
+                    <form class="contact-form reveal reveal--delay" id="contact-form" novalidate>
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" placeholder="Your name">
+                            <small class="field__error"></small>
                         </div>
 
-                        <div>
-                            <label for="message" class="block text-slate-400 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5"
-                                class="contact-input w-full px-4 py-3 rounded-lg" placeholder="Your Message"></textarea>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="Your email">
+                            <small class="field__error"></small>
                         </div>
 
-                        <button type="submit"
-                            class="btn-primary w-full py-3 rounded-lg font-medium flex items-center justify-center">
-                            Send Message
-                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </button>
+                        <div class="field">
+                            <label for="subject">Project type</label>
+                            <input id="subject" name="subject" type="text" placeholder="Landing page, dashboard, portfolio...">
+                            <small class="field__error"></small>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your idea, goals, or what you're building."></textarea>
+                            <small class="field__error"></small>
+                        </div>
+
+                        <button class="button button--primary magnetic" type="submit">Send Message</button>
+                        <p class="form-status" id="form-status" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Custom Alert Modal -->
-    <div id="custom-alert" style="display: none;"
-        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-        <div class="bg-gray-800 text-white p-6 rounded-xl w-full max-w-sm text-center">
-            <div class="text-lg font-bold mb-4">Message from Shehap...</div>
-            <div class="mb-6" id="alert-message"></div>
-            <button onclick="closeCustomAlert()"
-                class="bg-blue-400 hover:bg-blue-500 text-black font-semibold py-2 px-6 rounded-full">
-                OK
-            </button>
-        </div>
-    </div>
-    <!-- Footer -->
-    <footer class="py-8 bg-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <a href="#home" class="text-xl font-bold space-font text-white">
-                        <span class="text-indigo-500">Sh.</span>Portfolio
-                    </a>
-                </div>
-
-                <div class="text-slate-400 text-sm">
-                    &copy; 2025 Shehap Ghazal. All rights reserved.
-                </div>
-
-                <div class="mt-4 md:mt-0">
-                    <a href="#home" class="text-slate-400 hover:text-indigo-500 transition-colors" title="Back to top">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+    <footer class="site-footer">
+        <div class="container site-footer__content">
+            <p>Shihab • Frontend & Full Stack Developer</p>
+            <a href="#hero">Back to top</a>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="JS/scripts.js"></script>
-</body>
 
+    <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
+
+    <script type="module" src="JS/scripts.js"></script>
+</body>
 </html>
+
+
+
