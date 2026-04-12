@@ -38,6 +38,13 @@ const heroBadgeBetaLabel = document.getElementById("hero-badge-beta-label");
 const heroBadgeBetaTitle = document.getElementById("hero-badge-beta-title");
 const skillCloud = document.getElementById("skill-cloud");
 const skillsBars = document.getElementById("skills-bars");
+const contactEmail = document.getElementById("contact-email");
+const contactPhone = document.getElementById("contact-phone");
+const contactLocation = document.getElementById("contact-location");
+const contactSocialGithub = document.getElementById("contact-social-github");
+const contactSocialLinkedin = document.getElementById("contact-social-linkedin");
+const contactSocialX = document.getElementById("contact-social-x");
+const contactSocialFacebook = document.getElementById("contact-social-facebook");
 
 const typingPhrases = [
     "premium frontend experiences.",
@@ -51,6 +58,7 @@ const commentsStorageKey = "shihab-portfolio-comments";
 const projectsStorageKey = "shihab-portfolio-projects";
 const heroStorageKey = "shihab-portfolio-hero";
 const skillsStorageKey = "shihab-portfolio-skills";
+const contactStorageKey = "shihab-portfolio-contact";
 
 if (localStorage.getItem(themeStorageKey) === "light") {
     body.classList.add("light-mode");
@@ -171,6 +179,17 @@ const parseInitialSkills = () => {
     return [...pills, ...meters];
 };
 
+const parseInitialContact = () => ({
+    email: contactEmail?.textContent?.trim() || "sh.s.ghazal2003@gmail.com",
+    phone: contactPhone?.textContent?.trim() || "+20 101 092 0472",
+    phoneLink: (contactPhone?.getAttribute("href") || "tel:+201010920472").replace(/^tel:/i, ""),
+    location: contactLocation?.textContent?.trim() || "Zagazig, Sharqia, Egypt",
+    githubUrl: contactSocialGithub?.getAttribute("href") || "https://github.com/Shehap152/Shehap152",
+    linkedinUrl: contactSocialLinkedin?.getAttribute("href") || "https://www.linkedin.com/in/shehap-0-ghazal/",
+    xUrl: contactSocialX?.getAttribute("href") || "https://x.com/sh_ghazal2003",
+    facebookUrl: contactSocialFacebook?.getAttribute("href") || "https://www.facebook.com/shehap.ghazal"
+});
+
 const loadLocalProjects = () => {
     try {
         const parsed = JSON.parse(localStorage.getItem(projectsStorageKey) || "null");
@@ -207,6 +226,19 @@ const loadLocalSkills = () => {
 
     const fallback = parseInitialSkills();
     localStorage.setItem(skillsStorageKey, JSON.stringify(fallback));
+    return fallback;
+};
+
+const loadLocalContact = () => {
+    try {
+        const parsed = JSON.parse(localStorage.getItem(contactStorageKey) || "null");
+        if (parsed && typeof parsed === "object") return parsed;
+    } catch {
+        // ignore invalid local storage
+    }
+
+    const fallback = parseInitialContact();
+    localStorage.setItem(contactStorageKey, JSON.stringify(fallback));
     return fallback;
 };
 
@@ -267,10 +299,22 @@ const normalizeSkill = (docId, raw = {}) => ({
     order: typeof raw.order === "number" ? raw.order : Number(raw.order || 0)
 });
 
+const normalizeContact = (raw = {}) => ({
+    email: raw.email || "sh.s.ghazal2003@gmail.com",
+    phone: raw.phone || "+20 101 092 0472",
+    phoneLink: raw.phoneLink || "+201010920472",
+    location: raw.location || "Zagazig, Sharqia, Egypt",
+    githubUrl: raw.githubUrl || "https://github.com/Shehap152/Shehap152",
+    linkedinUrl: raw.linkedinUrl || "https://www.linkedin.com/in/shehap-0-ghazal/",
+    xUrl: raw.xUrl || "https://x.com/sh_ghazal2003",
+    facebookUrl: raw.facebookUrl || "https://www.facebook.com/shehap.ghazal"
+});
+
 let comments = loadLocalComments();
 let projects = loadLocalProjects();
 let heroContent = loadLocalHero();
 let skillsData = loadLocalSkills();
+let contactContent = loadLocalContact();
 const commentStore = {
     mode: "local",
     async add(comment) {
@@ -363,6 +407,29 @@ const renderSkills = () => {
     `).join("");
 
     bindSkillPillHover();
+};
+
+const renderContact = () => {
+    const normalized = normalizeContact(contactContent);
+
+    if (contactEmail) {
+        contactEmail.textContent = normalized.email;
+        contactEmail.href = `mailto:${normalized.email}`;
+    }
+
+    if (contactPhone) {
+        contactPhone.textContent = normalized.phone;
+        contactPhone.href = `tel:${normalized.phoneLink}`;
+    }
+
+    if (contactLocation) {
+        contactLocation.textContent = normalized.location;
+    }
+
+    if (contactSocialGithub) contactSocialGithub.href = normalized.githubUrl;
+    if (contactSocialLinkedin) contactSocialLinkedin.href = normalized.linkedinUrl;
+    if (contactSocialX) contactSocialX.href = normalized.xUrl;
+    if (contactSocialFacebook) contactSocialFacebook.href = normalized.facebookUrl;
 };
 
 const renderPortfolioStats = () => {
@@ -581,6 +648,39 @@ const setupFirebaseSkills = async () => {
     }
 };
 
+const setupFirebaseContact = async () => {
+    if (!isFirebaseConfigured()) {
+        renderContact();
+        return;
+    }
+
+    try {
+        const appModule = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js");
+        const firestoreModule = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js");
+        const app = appModule.getApps()[0] || appModule.initializeApp(firebaseSettings.config);
+        const db = firestoreModule.getFirestore(app);
+        const collectionName = firebaseSettings.contentCollectionName || "portfolioContent";
+
+        firestoreModule.onSnapshot(
+            firestoreModule.doc(db, collectionName, "contactProfile"),
+            (snapshot) => {
+                if (snapshot.exists()) {
+                    contactContent = normalizeContact(snapshot.data());
+                    localStorage.setItem(contactStorageKey, JSON.stringify(contactContent));
+                }
+                renderContact();
+            },
+            (error) => {
+                console.error("Firebase contact setup failed:", error);
+                renderContact();
+            }
+        );
+    } catch (error) {
+        console.error("Firebase contact setup failed:", error);
+        renderContact();
+    }
+};
+
 navToggle?.addEventListener("click", () => {
     const isOpen = navMenu.classList.toggle("is-open");
     navToggle.classList.toggle("is-open", isOpen);
@@ -679,6 +779,7 @@ skillPills.forEach((pill) => {
 });
 
 bindSkillPillHover();
+renderContact();
 
 if (window.matchMedia("(pointer:fine)").matches && cursor) {
     window.addEventListener("mousemove", (event) => {
@@ -794,3 +895,4 @@ setupFirebaseComments();
 setupFirebaseHero();
 setupFirebaseSkills();
 setupFirebaseProjects();
+setupFirebaseContact();

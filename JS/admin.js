@@ -4,6 +4,7 @@ const commentsStorageKey = "shihab-portfolio-comments";
 const projectsStorageKey = "shihab-portfolio-projects";
 const heroStorageKey = "shihab-portfolio-hero";
 const skillsStorageKey = "shihab-portfolio-skills";
+const contactStorageKey = "shihab-portfolio-contact";
 const loginForm = document.getElementById("admin-login-form");
 const loginStatus = document.getElementById("admin-login-status");
 const authShell = document.getElementById("admin-auth-shell");
@@ -24,6 +25,7 @@ const projectsList = document.getElementById("admin-projects-list");
 const projectsEmpty = document.getElementById("admin-projects-empty");
 const toastStack = document.getElementById("toast-stack");
 const profileForm = document.getElementById("admin-profile-form");
+const contactForm = document.getElementById("admin-contact-form");
 const skillForm = document.getElementById("admin-skill-form");
 const skillResetButton = document.getElementById("skill-reset-button");
 const skillsList = document.getElementById("admin-skills-list");
@@ -35,6 +37,7 @@ let comments = loadJson(commentsStorageKey, []);
 let projects = loadJson(projectsStorageKey, []);
 let heroContent = loadJson(heroStorageKey, {});
 let skills = loadJson(skillsStorageKey, []);
+let contactContent = loadJson(contactStorageKey, {});
 let authReady = false;
 let firebase = null;
 
@@ -176,6 +179,19 @@ function normalizeSkill(docId, raw = {}) {
     };
 }
 
+function normalizeContact(raw = {}) {
+    return {
+        email: raw.email || "sh.s.ghazal2003@gmail.com",
+        phone: raw.phone || "+20 101 092 0472",
+        phoneLink: raw.phoneLink || "+201010920472",
+        location: raw.location || "Zagazig, Sharqia, Egypt",
+        githubUrl: raw.githubUrl || "https://github.com/Shehap152/Shehap152",
+        linkedinUrl: raw.linkedinUrl || "https://www.linkedin.com/in/shehap-0-ghazal/",
+        xUrl: raw.xUrl || "https://x.com/sh_ghazal2003",
+        facebookUrl: raw.facebookUrl || "https://www.facebook.com/shehap.ghazal"
+    };
+}
+
 function renderStats() {
     statTotal.textContent = String(comments.length);
     statPending.textContent = String(comments.filter((comment) => comment.status === "pending").length);
@@ -255,6 +271,20 @@ function fillProfileForm() {
     profileForm.elements.namedItem("heroPanelItems").value = normalized.panelItems.join(", ");
 }
 
+function fillContactForm() {
+    if (!contactForm) return;
+
+    const normalized = normalizeContact(contactContent);
+    contactForm.elements.namedItem("contactEmail").value = normalized.email;
+    contactForm.elements.namedItem("contactPhone").value = normalized.phone;
+    contactForm.elements.namedItem("contactPhoneLink").value = normalized.phoneLink;
+    contactForm.elements.namedItem("contactLocation").value = normalized.location;
+    contactForm.elements.namedItem("contactGithub").value = normalized.githubUrl;
+    contactForm.elements.namedItem("contactLinkedin").value = normalized.linkedinUrl;
+    contactForm.elements.namedItem("contactX").value = normalized.xUrl;
+    contactForm.elements.namedItem("contactFacebook").value = normalized.facebookUrl;
+}
+
 function renderSkills() {
     const sortedSkills = [...skills].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
     skillsList.innerHTML = sortedSkills.map((skill) => `
@@ -309,6 +339,30 @@ function getHeroPayload() {
         badgeAlphaTitle: profileForm.elements.namedItem("heroBadgeAlphaTitle").value.trim(),
         badgeBetaLabel: profileForm.elements.namedItem("heroBadgeBetaLabel").value.trim(),
         badgeBetaTitle: profileForm.elements.namedItem("heroBadgeBetaTitle").value.trim()
+    };
+}
+
+function getContactPayload() {
+    if (!contactForm) {
+        throw new Error("Contact form is not available.");
+    }
+
+    const email = contactForm.elements.namedItem("contactEmail").value.trim();
+    const phone = contactForm.elements.namedItem("contactPhone").value.trim();
+
+    if (!email || !phone) {
+        throw new Error("Email and phone are required.");
+    }
+
+    return {
+        email,
+        phone,
+        phoneLink: contactForm.elements.namedItem("contactPhoneLink").value.trim() || phone,
+        location: contactForm.elements.namedItem("contactLocation").value.trim(),
+        githubUrl: contactForm.elements.namedItem("contactGithub").value.trim(),
+        linkedinUrl: contactForm.elements.namedItem("contactLinkedin").value.trim(),
+        xUrl: contactForm.elements.namedItem("contactX").value.trim(),
+        facebookUrl: contactForm.elements.namedItem("contactFacebook").value.trim()
     };
 }
 
@@ -447,6 +501,17 @@ async function setupFirebaseDashboard() {
                     localStorage.setItem(heroStorageKey, JSON.stringify(heroContent));
                 }
                 fillProfileForm();
+            }
+        );
+
+        firestoreModule.onSnapshot(
+            firestoreModule.doc(db, contentCollectionName, "contactProfile"),
+            (snapshot) => {
+                if (snapshot.exists()) {
+                    contactContent = normalizeContact(snapshot.data());
+                    localStorage.setItem(contactStorageKey, JSON.stringify(contactContent));
+                }
+                fillContactForm();
             }
         );
 
@@ -591,6 +656,29 @@ profileForm?.addEventListener("submit", async (event) => {
     }
 });
 
+contactForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    try {
+        const payload = getContactPayload();
+
+        if (firebase) {
+            await firebase.firestoreModule.setDoc(
+                firebase.firestoreModule.doc(firebase.db, firebase.contentCollectionName, "contactProfile"),
+                payload
+            );
+        } else {
+            contactContent = normalizeContact(payload);
+            localStorage.setItem(contactStorageKey, JSON.stringify(contactContent));
+            fillContactForm();
+        }
+
+        showToast("Contact updated", "The contact section details were updated successfully.", "success");
+    } catch (error) {
+        showToast("Contact update failed", error.message || "Unable to save the contact details.", "error");
+    }
+});
+
 skillForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -704,5 +792,6 @@ skillsList?.addEventListener("click", async (event) => {
 renderComments();
 renderProjects();
 fillProfileForm();
+fillContactForm();
 renderSkills();
 setupFirebaseDashboard();
