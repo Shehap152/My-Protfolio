@@ -81,6 +81,27 @@ function splitList(value = "") {
     return value.split(",").map((item) => item.trim()).filter(Boolean);
 }
 
+function isHttpUrl(value = "") {
+    return /^https?:\/\//i.test(String(value).trim());
+}
+
+function buildWebsitePreviewUrl(value = "") {
+    const url = String(value).trim();
+    return isHttpUrl(url) ? `https://image.thum.io/get/width/1200/crop/720/noanimate/${url}` : "";
+}
+
+function getProjectImage(project = {}) {
+    const explicitImage = String(project.image || "").trim();
+    if (explicitImage) return explicitImage;
+
+    const previewUrl = buildWebsitePreviewUrl(project.liveUrl || "");
+    return previewUrl || "images/dashboard.png";
+}
+
+function getProjectLinkLabel(type) {
+    return type === "live" ? "Open Live Site" : "View Code";
+}
+
 function formatDate(timestamp) {
     return new Intl.DateTimeFormat("en", { year: "numeric", month: "short", day: "numeric" }).format(timestamp ? new Date(timestamp) : new Date());
 }
@@ -115,7 +136,7 @@ function normalizeProject(docId, raw = {}) {
         id: docId || raw.id || `project-${Date.now()}`,
         title: raw.title || "Untitled project",
         description: raw.description || "",
-        image: raw.image || "images/dashboard.png",
+        image: typeof raw.image === "string" ? raw.image : "",
         imageAlt: raw.imageAlt || `${raw.title || "Project"} preview`,
         categories: Array.isArray(raw.categories) ? raw.categories : splitList(raw.categories || ""),
         meta: Array.isArray(raw.meta) ? raw.meta : splitList(raw.meta || ""),
@@ -191,7 +212,7 @@ function renderProjects() {
     projectsList.innerHTML = sortedProjects.map((project) => `
         <article class="comment-card admin-project-card">
             <div class="admin-project-card__media">
-                <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}">
+                <img src="${escapeHtml(getProjectImage(project))}" alt="${escapeHtml(project.imageAlt)}">
             </div>
             <div class="admin-project-card__content">
                 <div class="comment-card__top">
@@ -205,8 +226,8 @@ function renderProjects() {
                 <div class="project-card__meta">${project.meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
                 <div class="project-card__tags">${project.tags.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
                 <div class="project-card__links">
-                    ${project.liveUrl ? `<a href="${escapeHtml(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Live</a>` : ""}
-                    ${project.githubUrl ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">GitHub</a>` : ""}
+                    ${project.liveUrl ? `<a class="project-card__link project-card__link--live" href="${escapeHtml(project.liveUrl)}" target="_blank" rel="noopener noreferrer"><span>Live</span><small>${getProjectLinkLabel("live")}</small></a>` : ""}
+                    ${project.githubUrl ? `<a class="project-card__link project-card__link--github" href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer"><span>GitHub</span><small>${getProjectLinkLabel("github")}</small></a>` : ""}
                 </div>
                 <div class="comment-card__actions">
                     <button class="comment-action comment-action--approve" type="button" data-project-action="edit" data-id="${project.id}">Edit</button>
@@ -348,8 +369,8 @@ function getProjectPayload() {
     const meta = splitList(projectForm.elements.namedItem("projectMeta").value.trim());
     const tags = splitList(projectForm.elements.namedItem("projectTags").value.trim());
 
-    if (!title || !description || !image || !categories.length) {
-        throw new Error("Project name, description, image, and at least one category are required.");
+    if (!title || !description || !categories.length) {
+        throw new Error("Project name, description, and at least one category are required.");
     }
 
     return {

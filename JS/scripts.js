@@ -20,15 +20,9 @@ const commentStatus = document.getElementById("comment-status");
 const approvedCommentsList = document.getElementById("approved-comments-list");
 const approvedCommentsEmpty = document.getElementById("approved-comments-empty");
 const approvedCommentsCount = document.getElementById("approved-comments-count");
-const pendingCommentsList = document.getElementById("pending-comments-list");
-const pendingCommentsEmpty = document.getElementById("pending-comments-empty");
-const pendingCommentsCount = document.getElementById("pending-comments-count");
-const moderationPasscode = document.getElementById("moderation-passcode");
-const moderationUnlock = document.getElementById("moderation-unlock");
-const moderationLock = document.getElementById("moderation-lock");
-const moderationAuth = document.getElementById("moderation-auth");
-const moderationContent = document.getElementById("moderation-content");
-const moderationAuthError = document.getElementById("moderation-auth-error");
+const statsProjectsCount = document.getElementById("stats-projects-count");
+const statsSkillsCount = document.getElementById("stats-skills-count");
+const statsApprovedCount = document.getElementById("stats-approved-count");
 const projectsGrid = document.getElementById("projects-grid");
 const toastStack = document.getElementById("toast-stack");
 const heroToplineName = document.getElementById("hero-topline-name");
@@ -54,7 +48,6 @@ const typingPhrases = [
 
 const themeStorageKey = "shihab-portfolio-theme";
 const commentsStorageKey = "shihab-portfolio-comments";
-const moderationStorageKey = "shihab-portfolio-moderation";
 const projectsStorageKey = "shihab-portfolio-projects";
 const heroStorageKey = "shihab-portfolio-hero";
 const skillsStorageKey = "shihab-portfolio-skills";
@@ -76,6 +69,23 @@ const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, (char) => (
 }[char]));
 
 const splitList = (value = "") => value.split(",").map((item) => item.trim()).filter(Boolean);
+
+const isHttpUrl = (value = "") => /^https?:\/\//i.test(String(value).trim());
+
+const buildWebsitePreviewUrl = (value = "") => {
+    const url = String(value).trim();
+    return isHttpUrl(url) ? `https://image.thum.io/get/width/1200/crop/720/noanimate/${url}` : "";
+};
+
+const getProjectImage = (project = {}) => {
+    const explicitImage = String(project.image || "").trim();
+    if (explicitImage) return explicitImage;
+
+    const previewUrl = buildWebsitePreviewUrl(project.liveUrl || "");
+    return previewUrl || "images/dashboard.png";
+};
+
+const getProjectLinkLabel = (type) => type === "live" ? "Open Live Site" : "View Code";
 
 const showToast = (title, message, type = "success") => {
     if (!toastStack) return;
@@ -222,7 +232,7 @@ const normalizeProject = (docId, raw = {}) => ({
     id: docId || raw.id || `project-${Date.now()}`,
     title: raw.title || "Untitled project",
     description: raw.description || "",
-    image: raw.image || "images/dashboard.png",
+    image: typeof raw.image === "string" ? raw.image : "",
     imageAlt: raw.imageAlt || `${raw.title || "Project"} preview`,
     categories: Array.isArray(raw.categories) ? raw.categories : splitList(raw.categories || ""),
     meta: Array.isArray(raw.meta) ? raw.meta : splitList(raw.meta || ""),
@@ -261,8 +271,6 @@ let comments = loadLocalComments();
 let projects = loadLocalProjects();
 let heroContent = loadLocalHero();
 let skillsData = loadLocalSkills();
-let moderationUnlocked = localStorage.getItem(moderationStorageKey) === "unlocked";
-
 const commentStore = {
     mode: "local",
     async add(comment) {
@@ -292,7 +300,7 @@ const renderProjects = () => {
     projectsGrid.innerHTML = visibleProjects.map((project, index) => `
         <article class="project-card glass-card reveal is-visible ${index % 2 ? "reveal--delay" : ""}" data-category="${escapeHtml(project.categories.join(" "))}">
             <div class="project-card__media">
-                <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt)}">
+                <img src="${escapeHtml(getProjectImage(project))}" alt="${escapeHtml(project.imageAlt)}">
             </div>
             <div class="project-card__content">
                 <div class="project-card__meta">${project.meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
@@ -300,8 +308,8 @@ const renderProjects = () => {
                 <p>${escapeHtml(project.description)}</p>
                 <div class="project-card__tags">${project.tags.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
                 <div class="project-card__links">
-                    ${project.liveUrl ? `<a href="${escapeHtml(project.liveUrl)}" target="_blank" rel="noopener noreferrer">Live</a>` : ""}
-                    ${project.githubUrl ? `<a href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer">GitHub</a>` : ""}
+                    ${project.liveUrl ? `<a class="project-card__link project-card__link--live" href="${escapeHtml(project.liveUrl)}" target="_blank" rel="noopener noreferrer"><span>Live</span><small>${getProjectLinkLabel("live")}</small></a>` : ""}
+                    ${project.githubUrl ? `<a class="project-card__link project-card__link--github" href="${escapeHtml(project.githubUrl)}" target="_blank" rel="noopener noreferrer"><span>GitHub</span><small>${getProjectLinkLabel("github")}</small></a>` : ""}
                 </div>
             </div>
         </article>
@@ -357,7 +365,23 @@ const renderSkills = () => {
     bindSkillPillHover();
 };
 
+const renderPortfolioStats = () => {
+    if (statsProjectsCount) {
+        statsProjectsCount.textContent = String(projects.length);
+    }
+
+    if (statsSkillsCount) {
+        statsSkillsCount.textContent = String(skillsData.length);
+    }
+
+    if (statsApprovedCount) {
+        statsApprovedCount.textContent = String(comments.filter((comment) => comment.status === "approved").length);
+    }
+};
+
 const renderApprovedComments = () => {
+    if (!approvedCommentsList || !approvedCommentsEmpty || !approvedCommentsCount) return;
+
     const approvedComments = comments.filter((comment) => comment.status === "approved");
     approvedCommentsList.innerHTML = approvedComments.map((comment) => `
         <article class="comment-card">
@@ -376,41 +400,9 @@ const renderApprovedComments = () => {
     approvedCommentsCount.textContent = `${approvedComments.length} approved`;
 };
 
-const renderPendingComments = () => {
-    const moderatedComments = comments.filter((comment) => comment.status !== "approved");
-    pendingCommentsList.innerHTML = moderatedComments.map((comment) => `
-        <article class="comment-card">
-            <div class="comment-card__top">
-                <div class="comment-card__author">
-                    <strong>${escapeHtml(comment.name)}</strong>
-                    <span>${escapeHtml(comment.role)}</span>
-                    <span class="comment-card__status">${escapeHtml(comment.status)}</span>
-                </div>
-                <span class="comment-card__date">${formatDate(comment.createdAt)}</span>
-            </div>
-            <p class="comment-card__message">${escapeHtml(comment.message)}</p>
-            <div class="comment-card__actions">
-                <button class="comment-action comment-action--approve" type="button" data-action="approve" data-id="${comment.id}">Approve</button>
-                <button class="comment-action comment-action--hide" type="button" data-action="hide" data-id="${comment.id}">Hide</button>
-                <button class="comment-action comment-action--delete" type="button" data-action="delete" data-id="${comment.id}">Delete</button>
-            </div>
-        </article>
-    `).join("");
-
-    pendingCommentsEmpty.hidden = moderatedComments.length > 0;
-    pendingCommentsCount.textContent = `${comments.filter((item) => item.status === "pending").length} pending / ${comments.filter((item) => item.status === "hidden").length} hidden`;
-};
-
-const syncModerationState = () => {
-    moderationAuth.hidden = moderationUnlocked;
-    moderationContent.hidden = !moderationUnlocked;
-    if (!moderationUnlocked) moderationPasscode.value = "";
-};
-
 const rerenderComments = () => {
     renderApprovedComments();
-    renderPendingComments();
-    syncModerationState();
+    renderPortfolioStats();
 };
 
 const clearFieldState = (selector) => {
@@ -489,6 +481,7 @@ const setupFirebaseComments = async () => {
 const setupFirebaseProjects = async () => {
     if (!isFirebaseConfigured()) {
         renderProjects();
+        renderPortfolioStats();
         return;
     }
 
@@ -507,13 +500,16 @@ const setupFirebaseProjects = async () => {
                 localStorage.setItem(projectsStorageKey, JSON.stringify(firebaseProjects));
             }
             renderProjects();
+            renderPortfolioStats();
         }, (error) => {
             console.error("Firebase projects setup failed:", error);
             renderProjects();
+            renderPortfolioStats();
         });
     } catch (error) {
         console.error("Firebase projects setup failed:", error);
         renderProjects();
+        renderPortfolioStats();
     }
 };
 
@@ -553,6 +549,7 @@ const setupFirebaseHero = async () => {
 const setupFirebaseSkills = async () => {
     if (!isFirebaseConfigured()) {
         renderSkills();
+        renderPortfolioStats();
         return;
     }
 
@@ -571,13 +568,16 @@ const setupFirebaseSkills = async () => {
                 localStorage.setItem(skillsStorageKey, JSON.stringify(firebaseSkills));
             }
             renderSkills();
+            renderPortfolioStats();
         }, (error) => {
             console.error("Firebase skills setup failed:", error);
             renderSkills();
+            renderPortfolioStats();
         });
     } catch (error) {
         console.error("Firebase skills setup failed:", error);
         renderSkills();
+        renderPortfolioStats();
     }
 };
 
@@ -778,49 +778,13 @@ commentForm?.addEventListener("submit", async (event) => {
     }
 });
 
-moderationUnlock?.addEventListener("click", () => {
-    const expectedPasscode = firebaseSettings?.moderationPasscode || "ShihabAdmin2026";
-    if (moderationPasscode.value.trim() !== expectedPasscode) {
-        moderationAuthError.textContent = "Incorrect passcode.";
-        return;
-    }
-
-    moderationUnlocked = true;
-    localStorage.setItem(moderationStorageKey, "unlocked");
-    moderationAuthError.textContent = "";
-    rerenderComments();
-});
-
-moderationLock?.addEventListener("click", () => {
-    moderationUnlocked = false;
-    localStorage.removeItem(moderationStorageKey);
-    rerenderComments();
-});
-
-pendingCommentsList?.addEventListener("click", async (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLElement)) return;
-    const action = target.dataset.action;
-    const id = target.dataset.id;
-    if (!action || !id) return;
-
-    try {
-        if (action === "approve") await commentStore.updateStatus(id, "approved");
-        if (action === "hide") await commentStore.updateStatus(id, "hidden");
-        if (action === "delete") await commentStore.remove(id);
-        showToast("Comment updated", `Comment ${action}d successfully.`, "success");
-    } catch (error) {
-        console.error("Failed moderation action:", error);
-        showToast("Moderation failed", error.message || "Unable to update the comment right now.", "error");
-    }
-});
-
 window.addEventListener("scroll", updateScrollProgress, { passive: true });
 window.addEventListener("resize", () => {
     if (window.innerWidth > 820) closeMobileMenu();
 });
 
 updateScrollProgress();
+renderPortfolioStats();
 runTypingAnimation();
 renderHero();
 renderSkills();

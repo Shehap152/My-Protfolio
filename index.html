@@ -295,8 +295,8 @@
                                 <span>JavaScript</span>
                             </div>
                             <div class="project-card__links">
-                                <a href="https://shehap152.github.io/frontend-project/" target="_blank" rel="noopener noreferrer">Live</a>
-                                <a href="https://github.com/Shehap152/frontend-project" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <a class="project-card__link project-card__link--live" href="https://shehap152.github.io/frontend-project/" target="_blank" rel="noopener noreferrer"><span>Live</span><small>Open Live Site</small></a>
+                                <a class="project-card__link project-card__link--github" href="https://github.com/Shehap152/frontend-project" target="_blank" rel="noopener noreferrer"><span>GitHub</span><small>View Code</small></a>
                             </div>
                         </div>
                     </article>
@@ -318,8 +318,8 @@
                                 <span>Charts UI</span>
                             </div>
                             <div class="project-card__links">
-                                <a href="https://dashboardsh.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                                <a href="https://github.com/Shehap152/HTML_And_CSS_project_4" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <a class="project-card__link project-card__link--live" href="https://dashboardsh.netlify.app/" target="_blank" rel="noopener noreferrer"><span>Live</span><small>Open Live Site</small></a>
+                                <a class="project-card__link project-card__link--github" href="https://github.com/Shehap152/HTML_And_CSS_project_4" target="_blank" rel="noopener noreferrer"><span>GitHub</span><small>View Code</small></a>
                             </div>
                         </div>
                     </article>
@@ -341,7 +341,7 @@
                                 <span>Commerce UI</span>
                             </div>
                             <div class="project-card__links">
-                                <a href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <a class="project-card__link project-card__link--github" href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer"><span>GitHub</span><small>View Code</small></a>
                             </div>
                         </div>
                     </article>
@@ -363,7 +363,7 @@
                                 <span>Brand UI</span>
                             </div>
                             <div class="project-card__links">
-                                <a href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <a class="project-card__link project-card__link--github" href="https://github.com/Shehap152" target="_blank" rel="noopener noreferrer"><span>GitHub</span><small>View Code</small></a>
                             </div>
                         </div>
                     </article>
@@ -490,33 +490,30 @@
                             <p class="form-status" id="comment-status" aria-live="polite"></p>
                         </form>
 
-                        <section class="moderation-panel glass-card reveal" id="moderation-panel">
+                        <section class="portfolio-stats glass-card reveal" aria-labelledby="portfolio-stats-title">
                             <div class="comments__header">
                                 <div>
-                                    <h3>Moderation panel</h3>
-                                    <p>Use owner mode here for quick moderation, or open the dedicated admin dashboard for a cleaner workflow with Firebase Authentication.</p>
+                                    <h3 id="portfolio-stats-title">Portfolio highlights</h3>
+                                    <p>A quick snapshot of the work, skills, and feedback currently featured across the portfolio.</p>
                                 </div>
                             </div>
 
-                            <a class="button button--ghost" href="admin.html">Open admin dashboard</a>
-
-                            <div class="moderation-panel__auth" id="moderation-auth">
-                                <div class="field">
-                                    <label for="moderation-passcode">Owner passcode</label>
-                                    <input id="moderation-passcode" type="password" placeholder="Enter passcode">
-                                    <small class="field__error" id="moderation-auth-error"></small>
-                                </div>
-                                <button class="button button--ghost magnetic" id="moderation-unlock" type="button">Unlock moderation</button>
+                            <div class="portfolio-stats__grid">
+                                <article class="portfolio-stats__item">
+                                    <strong id="stats-projects-count">0</strong>
+                                    <span>Projects featured</span>
+                                </article>
+                                <article class="portfolio-stats__item">
+                                    <strong id="stats-skills-count">0</strong>
+                                    <span>Skills highlighted</span>
+                                </article>
+                                <article class="portfolio-stats__item">
+                                    <strong id="stats-approved-count">0</strong>
+                                    <span>Approved comments</span>
+                                </article>
                             </div>
 
-                            <div class="moderation-panel__content" id="moderation-content" hidden>
-                                <div class="moderation-panel__topbar">
-                                    <span class="comments__counter" id="pending-comments-count">0 pending</span>
-                                    <button class="button button--ghost magnetic moderation-panel__lock" id="moderation-lock" type="button">Lock</button>
-                                </div>
-                                <div class="comments__list comments__list--moderation" id="pending-comments-list"></div>
-                                <p class="comments__empty" id="pending-comments-empty">No pending comments right now.</p>
-                            </div>
+                            <a class="button button--ghost" href="#projects">Explore recent projects</a>
                         </section>
                     </div>
                 </div>
@@ -584,7 +581,30 @@
     <footer class="site-footer">
         <div class="container site-footer__content">
             <p>Shihab • Frontend & Full Stack Developer</p>
-            <a href="#hero">Back to top</a>
+            <div class="site-footer__actions">
+                <a class="footer-action footer-action--cv" href="CV.html" download aria-label="Download CV">
+                    <span class="footer-action__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3v10m0 0 4-4m-4 4-4-4M5 15v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3" />
+                        </svg>
+                    </span>
+                    <span class="footer-action__text">
+                        <strong>Download CV</strong>
+                        <small>Get my resume</small>
+                    </span>
+                </a>
+                <a class="footer-action" href="#hero" aria-label="Back to top">
+                    <span class="footer-action__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="m7 14 5-5 5 5M12 10v10" />
+                        </svg>
+                    </span>
+                    <span class="footer-action__text">
+                        <strong>Back to top</strong>
+                        <small>Jump to hero</small>
+                    </span>
+                </a>
+            </div>
         </div>
     </footer>
 
